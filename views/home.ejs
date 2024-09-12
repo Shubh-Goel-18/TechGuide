@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Techguide - Home</title>
+    <link rel="shortcut icon" href="/images/logo1.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/enhancement.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="fade-in">
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1 class="website-name">Techguide</h1>
+            </div>
+            <nav class="nav-links header-links">
+                <ul>
+                    <li><a href="/learning" class="nav-link alert-login">Learning</a></li>
+                    <li><a href="/quizzes" class="nav-link alert-login">Quizzes</a></li>
+                    <li><a href="/coding-algorithms" class="nav-link alert-login">Coding Algorithms</a></li>
+                    <li><a href="/login" class="nav-link">Login</a></li>
+                    <li><a href="/signup" class="nav-link">Sign Up</a></li>
+                </ul>
+            </nav>
+            <div class="user-menu">
+                <div class="user-icon" id="user-icon">
+                    <img src="/images/<%= profileIcon %>" alt="User Profile" class="user-profile-icon">
+                    <span class="username"><%= username %></span>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <a href="/profile">Profile</a>
+                    <a href="/downloads">My Downloads</a>
+                    <a href="/attempts">Track Scores</a>
+                    <a href="/logout" id="logout-link">Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="intro">
+            <h2>Welcome to Techguide</h2>
+            <div class="marquee-wrapper">
+                <p class="marquee">Your ultimate resource for mastering technology. Stay updated with the latest in tech, sharpen your skills with quizzes, and tackle coding challenges to boost your knowledge.</p>
+            </div>
+        </section>
+        <section class="latest-news">
+            <h2>Latest Technology News</h2>
+            <div class="news-articles">
+                <article>
+                    <h3>Tech Trends to Watch in 2024</h3>
+                    <p>Explore the latest innovations and trends shaping the tech world this year. From AI advancements to quantum computing, these technologies are set to revolutionize industries and change the way we live.</p>
+                    <a target="_blank" href="https://www.ey.com/en_in/tech-trends-series" class="alert-login">Read More</a>
+                </article>
+                <article>
+                    <h3>AI's Impact on the Future of Work</h3>
+                    <p>How artificial intelligence is revolutionizing industries and job markets. Discover the opportunities and challenges AI presents for businesses and employees alike.</p>
+                    <a target="_blank" href="https://www.pwc.com/gx/en/issues/artificial-intelligence/future-of-work.html#:~:text=AI%20is%20the%20biggest%20business,of%20China%20and%20India%E2%80%94combined." class="alert-login">Read More</a>
+                </article>
+                <article>
+                    <h3>Breaking Down Blockchain Technology</h3>
+                    <p>Understanding the fundamentals and potential applications of blockchain. Learn how this decentralized technology is being used beyond cryptocurrencies.</p>
+                    <a target="_blank" href="https://www.pluralsight.com/resources/blog/cloud/blockchain-breakdown-what-is-it-and-whats-all-the-fuss" class="alert-login">Read More</a>
+                </article>
+            </div>
+        </section>
+        <section class="featured-sections">
+            <h2>Explore Our Top Resources</h2>
+            <div class="section">
+                <h3>Learning Resources</h3>
+                <p>Discover a curated collection of tutorials and articles to help you master various programming languages and technologies.</p>
+                <a target="_blank" href="/learning" class="alert-login">Explore Resources</a>
+            </div>
+            <div class="section">
+                <h3>Quizzes</h3>
+                <p>Test your knowledge and track your progress with quizzes tailored to different programming languages and tech topics.</p>
+                <a target="_blank" href="/quizzes" class="alert-login">Take a Quiz</a>
+            </div>
+            <div class="section">
+                <h3>Coding Algorithms</h3>
+                <p>Analyze the different algorithms with different complexities to enhance your problem-solving abilities.</p>
+                <a target="_blank" href="/coding-algorithms" class="alert-login">Start Analyzing</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Techguide. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="/contact">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+    <button id="back-to-top">↑</button>
+
+    <script src="/js/home.js"></script>
+    
+</body>
+</html>

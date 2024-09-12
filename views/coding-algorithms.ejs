@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Algorithms - Techguide</title>
+    <link rel="shortcut icon" href="/images/logo1.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/enhancement.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/algorithms.css">
+</head>
+<body class="fade-in">
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1 class="website-name">Techguide</h1>
+            </div>
+            <nav class="nav-links header-links">
+                <ul>
+                    <li><a href="/learning" class="nav-link alert-login">Learning</a></li>
+                    <li><a href="/quizzes" class="nav-link alert-login">Quizzes</a></li>
+                    <li><a href="/" class="nav-link alert-login">Home</a></li>
+                    <li><a href="/login" class="nav-link">Login</a></li>
+                    <li><a href="/signup" class="nav-link">Sign Up</a></li>
+                </ul>
+            </nav>
+            <div class="user-menu">
+                <div class="user-icon" id="user-icon">
+                    <img src="/images/<%= profileIcon %>" alt="User Profile" class="user-profile-icon">
+                    <span class="username"><%= username %></span>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <a href="/profile">Profile</a>
+                    <a href="/downloads">My Downloads</a>
+                    <a href="/attempts">Track Scores</a>
+                    <a href="/logout" id="logout-link">Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <!-- Main Heading with Animation Container -->
+        <div class="main-heading-container">
+            <h1>Coding Algorithms</h1>
+        </div>
+        
+        <!-- Question List -->
+        <div class="question-list">
+            <% if (questions.length > 0) { %>
+                <% questions.forEach(question => { %>
+                    <div class="question-item">
+                        <h2><%= question.question %></h2>
+                        <p><%= question.description %></p>
+                        <a href="/algorithm/<%= question.id %>" class="view-solution">View Solutions</a>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <p>No questions available.</p>
+            <% } %>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Techguide. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="/contact">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <button id="back-to-top">↑</button>
+
+    <script src="/js/home.js"></script>
+</body>
+</html>

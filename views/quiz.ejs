@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= language %> Quiz</title>
+    <link rel="shortcut icon" href="/images/logo1.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/quiz.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/enhancement.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1 class="website-name">Techguide</h1>
+            </div>
+            <nav class="nav-links header-links">
+                <ul>
+                    <li><a href="/learning" class="nav-link alert-login">Learning</a></li>
+                    <li><a href="/quizzes" class="nav-link alert-login">Quizzes</a></li>
+                    <li><a href="/coding-algorithms" class="nav-link alert-login">Coding Algorithms</a></li>
+                    <li><a href="/login" class="nav-link">Login</a></li>
+                    <li><a href="/signup" class="nav-link">Sign Up</a></li>
+                </ul>
+            </nav>
+            <div class="user-menu">
+                <div class="user-icon" id="user-icon">
+                    <img src="/images/<%= profileIcon %>" alt="User Profile" class="user-profile-icon">
+                    <span class="username"><%= username %></span>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <a href="/profile">Profile</a>
+                    <a href="/downloads">My Downloads</a>
+                    <a href="/attempts">Track Scores</a>
+                    <a href="/logout" id="logout-link">Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="quiz-container">
+        <div class="quiz-header">
+            <h1><%= language %> Quiz</h1>
+            <p>Welcome, <%= username %>! Get ready to test your knowledge.</p>
+        </div>
+
+        <div id="question-container" class="question-container">
+            <!-- Questions will be injected here by JavaScript -->
+        </div>
+
+        <div class="quiz-footer">
+            <button id="next-btn" class="next-btn">Next Question</button>
+            <div id="result-container"></div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Techguide. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="/contact">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Embed and parse the JSON data safely
+        const questionsData = JSON.parse(`<%- JSON.stringify(questions).replace(/</g, '\\u003c').replace(/&/g, '\\u0026').replace(/>/g, '\\u003e').replace(/'/g, "\\'") %>`);
+        
+        // Make sure to assign it to a global variable if needed in other scripts
+        window.questionsData = questionsData;
+        window.language = '<%= language %>';
+
+    </script>
+    
+    <script src="/js/quiz.js"></script>
+    <script src="/js/home.js"></script>
+</body>
+</html>

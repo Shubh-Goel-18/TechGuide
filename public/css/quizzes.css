@@ -1,0 +1,151 @@
+.quizzes-container {
+    text-align: center;
+    padding: 50px 20px;
+    background: white ;/* Updated gradient */
+    border-radius: 10px;
+}
+
+.quizzes-container h1 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    background: linear-gradient(45deg, #1c80eb, #007bff); /* Updated gradient */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    padding-bottom: 10px;
+    position: relative;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.quizzes-container h1::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #1c80eb, #007bff); /* Updated gradient */
+    bottom: 0;
+    left: 0;
+    animation: underline-slide 2s ease-in-out infinite;
+}
+
+.quizzes-container h1:hover {
+    transform: scale(1.05);
+}
+
+@keyframes underline-slide {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+
+
+.languages-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+}
+
+.language-card {
+    background: linear-gradient(45deg, #1c80eb, #007bff); /* Updated gradient */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Added for absolute positioning of h2::after */
+}
+
+
+.language-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.language-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Apply bounce effect on hover */
+.language-card:hover img {
+    animation: image-bounce 1.5s ease-in-out infinite;
+}
+
+@keyframes image-bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.language-card h2 {
+    font-size: 24px;
+    color: #ffffff; /* White color */
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.language-card h2::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 4px;
+    background: #ffffff; /* White color */
+    bottom: 0;
+    left: 25%;
+    transition: width 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+.language-card:hover h2::after {
+    width: 100%;
+    left: 0;
+    background: linear-gradient(90deg, #1c80eb, #007bff); /* Updated gradient */
+}
+
+.start-quiz-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: white; /* Updated gradient */
+    color: black; /* White color */
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.start-quiz-btn:hover {
+    background: linear-gradient(45deg, #007bff, #1c80eb); /* Reverse gradient for hover effect */
+    transform: scale(1.10);
+}
+
+@media (max-width: 768px) {
+    .languages-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .language-card {
+        padding: 15px;
+    }
+
+    .language-card h2 {
+        font-size: 20px;
+    }
+
+    .start-quiz-btn {
+        padding: 8px 16px;
+    }
+}

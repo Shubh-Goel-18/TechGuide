@@ -1,0 +1,137 @@
+/* styles for attempts.ejs */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.attempts-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Heading Styles */
+.attempts-container h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333;
+    text-align: center; /* Center align heading */
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+thead {
+    background: #f39c12;
+    color: #fff;
+}
+
+thead th {
+    padding: 12px;
+    text-align: left;
+}
+
+tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+tbody td {
+    padding: 12px;
+}
+
+tbody tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+tbody tr:hover {
+    background: #f1f1f1;
+}
+
+/* Button Styles */
+.centered-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.play-quizzes-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    color: #fff;
+    background: linear-gradient(135deg, #007bff, #00d2ff);
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.play-quizzes-button:hover {
+    background: linear-gradient(135deg, #0056b3, #00aaff);
+    transform: scale(1.05);
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .attempts-container {
+        padding: 1.5rem;
+    }
+
+    .attempts-container h1 {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .attempts-container {
+        padding: 1rem;
+    }
+
+    .attempts-container h1 {
+        font-size: 1.5rem;
+    }
+
+    .play-quizzes-button {
+        font-size: 1.1em;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .attempts-container h1 {
+        font-size: 1.25rem;
+    }
+
+    table {
+        font-size: 0.9em;
+    }
+
+    .play-quizzes-button {
+        font-size: 1em;
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .attempts-container h1 {
+        font-size: 1rem;
+    }
+
+    table {
+        font-size: 0.8em;
+    }
+
+    .play-quizzes-button {
+        font-size: 0.9em;
+        padding: 5px 10px;
+    }
+}

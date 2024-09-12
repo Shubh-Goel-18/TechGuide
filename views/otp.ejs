@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/images/logo1.png" type="image/x-icon">
+  <link rel="stylesheet" href="/css/styles.css">
+  <title>OTP Verification - Techguide</title>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-content">
+      <img src="/images/logo1.png" alt="Techguide Logo" class="site-logo">
+      <h1 class="site-name">Techguide</h1>
+    </div>
+  </header>
+  <div class="container">
+    <h2>Verify Your Account</h2>
+    <p>We’ve sent a one-time password (OTP) to your email. Please enter it below:</p>
+    <form action="/verify-otp" method="POST">
+      <input type="text" name="otp" placeholder="Enter OTP" required>
+      <button type="submit">Verify</button>
+    </form>
+    <p>Didn’t receive the OTP? <a href="/signup">Sign Up Again</a></p>
+  </div>
+</body>
+</html>

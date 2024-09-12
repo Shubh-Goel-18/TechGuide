@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Roadmap</title>
+     <link rel="shortcut icon" href="/images/logo1.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/enhancement.css">
+    <link rel="stylesheet" href="/css/learning.css">
+</head>
+
+<body class="fade-in">
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1 class="website-name">Techguide</h1>
+            </div>
+            <nav class="nav-links header-links">
+                <ul>
+                    <li><a href="/" class="nav-link">Home</a></li>
+                    <li><a href="/quizzes" class="nav-link">Quizzes</a></li>
+                    <li><a href="/coding-algorithms" class="nav-link">Coding Algorithms</a></li>
+                    <li><a href="/login" class="nav-link">Login</a></li>
+                    <li><a href="/signup" class="nav-link">Sign Up</a></li>
+                </ul>
+            </nav>
+            <div class="user-menu">
+                <div class="user-icon" id="user-icon">
+                    <img src="/images/<%= profileIcon %>" alt="User Profile" class="user-profile-icon">
+                    <span class="username">
+                        <%= username %>
+                    </span>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <a href="/profile">Profile</a>
+                    <a href="/downloads">My Downloads</a>
+                    <a href="/attempts">Track Scores</a>
+                    <a href="/logout">Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="main-heading-container">
+            <h1>Languages Roadmap</h1>
+            <div class="tagline-container">
+                <div class="tagline">Discover the path to mastering new languages</div>
+            </div>
+        </section>
+
+        <!-- Roadmap Container with more languages -->
+        <div class="roadmap-container">
+            <!-- Python Language Box -->
+            <div class="language-box">
+                <div class="card python-card">
+                    <div class="front">
+                        <div class="language-content">
+                            <h2 class="title">Python</h2>
+                            <div class="roadmap">
+                                <h3>Beginner</h3>
+                                <p>Step 1: Learn Python syntax and basic concepts</p>
+                                <p>Step 2: Understand data types and control flow</p>
+
+                                <h3>Intermediate</h3>
+                                <p>Step 3: Explore libraries and frameworks</p>
+                                <p>Step 4: Build projects with Python</p>
+
+                                <h3>Advanced</h3>
+                                <p>Step 5: Master advanced Python features (decorators, generators)</p>
+                                <p>Step 6: Develop web applications and data analysis projects</p>
+                            </div>
+                        </div>
+                        <button class="toggle-btn">Show Resources</button>
+                    </div>
+                    <div class="back">
+                        <div class="resources-content">
+                            <h3>Resources</h3>
+                            <ul>
+                                <li><a href="https://docs.python.org/3/" target="_blank">Python Documentation</a></li>
+                                <li><a href="https://automatetheboringstuff.com/" target="_blank">Automate the Boring
+                                        Stuff with Python</a></li>
+                                <li><a href="https://www.coursera.org/specializations/python" target="_blank">Python for
+                                        Everybody (Coursera)</a></li>
+                                <li><a href="https://realpython.com/" target="_blank">Real Python</a></li>
+                            </ul>
+                            <a href="/download/Python.pdf" download class="download-button">Download Notes</a>
+                        </div>
+                        <button class="toggle-btn">Back</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JavaScript Language Box -->
+            <div class="language-box">
+                <div class="card">
+                    <div class="front">
+                        <div class="language-content">
+                            <h2 class="title">JavaScript</h2>
+                            <div class="roadmap">
+                                <h3>Beginner</h3>
+                                <p>Step 1: Learn JavaScript syntax and DOM manipulation</p>
+                                <p>Step 2: Understand basic programming concepts</p>
+
+                                <h3>Intermediate</h3>
+                                <p>Step 3: Explore JavaScript libraries (jQuery, React)</p>
+                                <p>Step 4: Build interactive web applications</p>
+
+                                <h3>Advanced</h3>
+                                <p>Step 5: Master JavaScript frameworks (Angular, Vue)</p>
+                                <p>Step 6: Develop full-stack applications with Node.js</p>
+                            </div>
+                        </div>
+                        <button class="toggle-btn">Show Resources</button>
+                    </div>
+                    <div class="back">
+                        <div class="resources-content">
+                            <h3>Resources</h3>
+                            <ul>
+                                <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+                                        target="_blank">JavaScript Documentation (MDN)</a></li>
+                                <li><a href="https://eloquentjavascript.net/" target="_blank">Eloquent JavaScript</a>
+                                </li>
+                                <li><a href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/"
+                                        target="_blank">JavaScript Algorithms and Data Structures (freeCodeCamp)</a>
+                                </li>
+                                <li><a href="https://javascript.info/" target="_blank">The Modern JavaScript
+                                        Tutorial</a></li>
+                            </ul>
+                            <a href="/download/JS.pdf" download class="download-button">Download Notes</a>
+                        </div>
+                        <button class="toggle-btn">Back</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Java Language Box -->
+            <div class="language-box">
+                <div class="card">
+                    <div class="front">
+                        <div class="language-content">
+                            <h2 class="title">Java</h2>
+                            <div class="roadmap">
+                                <h3>Beginner</h3>
+                                <p>Step 1: Learn Java syntax and basic concepts</p>
+                                <p>Step 2: Understand object-oriented programming</p>
+
+                                <h3>Intermediate</h3>
+                                <p>Step 3: Explore Java libraries and frameworks</p>
+                                <p>Step 4: Build projects with Java</p>
+
+                                <h3>Advanced</h3>
+                                <p>Step 5: Master advanced Java features (Generics, Multithreading)</p>
+                                <p>Step 6: Develop enterprise applications with Java</p>
+                            </div>
+                        </div>
+                        <button class="toggle-btn">Show Resources</button>
+                    </div>
+                    <div class="back">
+                        <div class="resources-content">
+                            <h3>Resources</h3>
+                            <ul>
+                                <li><a href="https://docs.oracle.com/en/java/" target="_blank">Java Documentation</a>
+                                </li>
+                                <li><a href="https://www.coursera.org/specializations/java-programming"
+                                        target="_blank">Java Programming and Software Engineering Fundamentals
+                                        (Coursera)</a></li>
+                                <li><a href="https://www.geeksforgeeks.org/java/" target="_blank">Java Programming
+                                        (GeeksforGeeks)</a></li>
+                                <li><a href="https://www.javatpoint.com/java-tutorial" target="_blank">Java Tutorial
+                                        (JavaTpoint)</a></li>
+                            </ul>
+                            <a href="/download/Java.pdf" download class="download-button">Download Notes</a>
+                        </div>
+                        <button class="toggle-btn">Back</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ruby Language Box -->
+            <div class="language-box">
+                <div class="card">
+                    <div class="front">
+                        <div class="language-content">
+                            <h2 class="title">Ruby</h2>
+                            <div class="roadmap">
+                                <h3>Beginner</h3>
+                                <p>Step 1: Learn Ruby syntax and basic concepts</p>
+                                <p>Step 2: Understand object-oriented programming in Ruby</p>
+
+                                <h3>Intermediate</h3>
+                                <p>Step 3: Explore Ruby on Rails framework</p>
+                                <p>Step 4: Build projects with Ruby on Rails</p>
+
+                                <h3>Advanced</h3>
+                                <p>Step 5: Master advanced Ruby features (Metaprogramming)</p>
+                                <p>Step 6: Develop web applications with Ruby on Rails</p>
+                            </div>
+                        </div>
+                        <button class="toggle-btn">Show Resources</button>
+                    </div>
+                    <div class="back">
+                        <div class="resources-content">
+                            <h3>Resources</h3>
+                            <ul>
+                                <li><a href="https://www.ruby-lang.org/en/documentation/" target="_blank">Ruby
+                                        Documentation</a></li>
+                                <li><a href="https://www.railstutorial.org/book" target="_blank">Ruby on Rails
+                                        Tutorial</a></li>
+                                <li><a href="https://www.codecademy.com/learn/learn-ruby" target="_blank">Learn Ruby
+                                        (Codecademy)</a></li>
+                                <li><a href="https://learnrubyonline.org/" target="_blank">Learn Ruby Online</a></li>
+                            </ul>
+                            <a href="/download/Ruby.pdf" download class="download-button">Download Notes</a>
+                        </div>
+                        <button class="toggle-btn">Back</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Language Boxes -->
+            <div class="language-box">
+                <div class="card">
+                    <div class="front">
+                        <div class="language-content">
+                            <h2 class="title">C++</h2>
+                            <div class="roadmap">
+                                <h3>Beginner</h3>
+                                <p>Step 1: Learn C++ syntax and basic concepts</p>
+                                <p>Step 2: Understand object-oriented programming in C++</p>
+
+                                <h3>Intermediate</h3>
+                                <p>Step 3: Explore C++ libraries (STL)</p>
+                                <p>Step 4: Build projects with C++</p>
+
+                                <h3>Advanced</h3>
+                                <p>Step 5: Master advanced C++ features (Templates, Multithreading)</p>
+                                <p>Step 6: Develop performance-critical applications with C++</p>
+                            </div>
+                        </div>
+                        <button class="toggle-btn">Show Resources</button>
+                    </div>
+                    <div class="back">
+                        <div class="resources-content">
+                            <h3>Resources</h3>
+                            <ul>
+                                <li><a href="https://cplusplus.com/doc/tutorial/" target="_blank">C++ Documentation</a>
+                                </li>
+                                <li><a href="https://www.learncpp.com/" target="_blank">Learn C++</a></li>
+                                <li><a href="https://www.coursera.org/specializations/cplusplus"
+                                        target="_blank">Object-Oriented Data Structures in C++ (Coursera)</a></li>
+                                <li><a href="https://www.geeksforgeeks.org/c-plus-plus/" target="_blank">C++ Programming
+                                        (GeeksforGeeks)</a></li>
+                            </ul>
+                            <a href="/download/C++.pdf" download class="download-button">Download Notes</a>
+                        </div>
+                        <button class="toggle-btn">Back</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="language-box">
+                <div class="card">
+                    <div class="front">
+                        <div class="language-content">
+                            <h2 class="title">C#</h2>
+                            <div class="roadmap">
+                                <h3>Beginner</h3>
+                                <p>Step 1: Learn C# syntax and basic concepts</p>
+                                <p>Step 2: Understand object-oriented programming in C#</p>
+
+                                <h3>Intermediate</h3>
+                                <p>Step 3: Explore .NET libraries and frameworks</p>
+                                <p>Step 4: Build projects with C#</p>
+
+                                <h3>Advanced</h3>
+                                <p>Step 5: Master advanced C# features (LINQ, Asynchronous Programming)</p>
+                                <p>Step 6: Develop enterprise applications with C# and .NET</p>
+                            </div>
+                        </div>
+                        <button class="toggle-btn">Show Resources</button>
+                    </div>
+                    <div class="back">
+                        <div class="resources-content">
+                            <h3>Resources</h3>
+                            <ul>
+                                <li><a href="https://docs.microsoft.com/en-us/dotnet/csharp/" target="_blank">C#
+                                        Documentation (Microsoft)</a></li>
+                                <li><a href="https://www.pluralsight.com/courses/c-sharp-fundamentals-dev"
+                                        target="_blank">C# Fundamentals (Pluralsight)</a></li>
+                                <li><a href="https://www.codecademy.com/learn/learn-c-sharp" target="_blank">Learn C#
+                                        (Codecademy)</a></li>
+                                <li><a href="https://www.udemy.com/course/csharp-tutorial-for-beginners/"
+                                        target="_blank">C# Tutorial for Beginners (Udemy)</a></li>
+                            </ul>
+                            <a href="/download/C#.pdf" download class="download-button">Download Notes</a>
+                        </div>
+                        <button class="toggle-btn">Back</button>
+                    </div>
+                </div>
+            </div>
+            <!-- C Language Box -->
+            <div class="language-box">
+                <div class="card">
+                    <div class="front">
+                        <div class="language-content">
+                            <h2 class="title">C</h2>
+                            <div class="roadmap">
+                                <h3>Beginner</h3>
+                                <p>Step 1: Learn C syntax and basic concepts</p>
+                                <p>Step 2: Understand data types and control flow</p>
+
+                                <h3>Intermediate</h3>
+                                <p>Step 3: Explore standard libraries and pointers</p>
+                                <p>Step 4: Build projects with C</p>
+
+                                <h3>Advanced</h3>
+                                <p>Step 5: Master advanced topics (Memory Management, Multithreading)</p>
+                                <p>Step 6: Develop system-level applications</p>
+                            </div>
+                        </div>
+                        <button class="toggle-btn">Show Resources</button>
+                    </div>
+                    <div class="back">
+                        <div class="resources-content">
+                            <h3>Resources</h3>
+                            <ul>
+                                <li><a href="https://www.learn-c.org/" target="_blank">Learn C</a></li>
+                                <li><a href="https://www.cprogramming.com/" target="_blank">C Programming</a></li>
+                                <li><a href="https://www.tutorialspoint.com/c_programming/index.htm"
+                                        target="_blank">TutorialsPoint C Programming</a></li>
+                                <li><a href="https://www.geeksforgeeks.org/c-programming-language/"
+                                        target="_blank">GeeksforGeeks C Programming</a></li>
+                            </ul>
+                            <a href="/download/C.pdf" download class="download-button">Download Notes</a>
+                        </div>
+                        <button class="toggle-btn">Back</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PHP Language Box -->
+            <div class="language-box">
+                <div class="card">
+                    <div class="front">
+                        <div class="language-content">
+                            <h2 class="title">PHP</h2>
+                            <div class="roadmap">
+                                <h3>Beginner</h3>
+                                <p>Step 1: Learn PHP syntax and basic concepts</p>
+                                <p>Step 2: Understand server-side scripting and form handling</p>
+
+                                <h3>Intermediate</h3>
+                                <p>Step 3: Explore PHP frameworks (Laravel, Symfony)</p>
+                                <p>Step 4: Build dynamic web applications with PHP</p>
+
+                                <h3>Advanced</h3>
+                                <p>Step 5: Master advanced topics (Security, Performance Optimization)</p>
+                                <p>Step 6: Develop scalable web solutions</p>
+                            </div>
+                        </div>
+                        <button class="toggle-btn">Show Resources</button>
+                    </div>
+                    <div class="back">
+                        <div class="resources-content">
+                            <h3>Resources</h3>
+                            <ul>
+                                <li><a href="https://www.php.net/manual/en/" target="_blank">PHP Manual</a></li>
+                                <li><a href="https://www.w3schools.com/php/" target="_blank">W3Schools PHP Tutorial</a>
+                                </li>
+                                <li><a href="https://www.tutorialspoint.com/php/index.htm"
+                                        target="_blank">TutorialsPoint PHP</a></li>
+                                <li><a href="https://www.learn-php.org/" target="_blank">Learn PHP Online</a></li>
+                            </ul>
+                            <a href="/download/Php.pdf" download class="download-button">Download Notes</a>
+                        </div>
+                        <button class="toggle-btn">Back</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Node.js Language Box -->
+            <div class="language-box">
+                <div class="card">
+                    <div class="front">
+                        <div class="language-content">
+                            <h2 class="title">Node.js</h2>
+                            <div class="roadmap">
+                                <h3>Beginner</h3>
+                                <p>Step 1: Learn Node.js basics and asynchronous programming</p>
+                                <p>Step 2: Understand NPM and module management</p>
+
+                                <h3>Intermediate</h3>
+                                <p>Step 3: Explore Node.js frameworks (Express.js, Koa)</p>
+                                <p>Step 4: Build server-side applications with Node.js</p>
+
+                                <h3>Advanced</h3>
+                                <p>Step 5: Master advanced topics (Streams, Performance Optimization)</p>
+                                <p>Step 6: Develop scalable and high-performance applications</p>
+                            </div>
+                        </div>
+                        <button class="toggle-btn">Show Resources</button>
+                    </div>
+                    <div class="back">
+                        <div class="resources-content">
+                            <h3>Resources</h3>
+                            <ul>
+                                <li><a href="https://nodejs.org/en/docs/" target="_blank">Node.js Documentation</a></li>
+                                <li><a href="https://www.w3schools.com/nodejs/" target="_blank">W3Schools Node.js
+                                        Tutorial</a></li>
+                                <li><a href="https://www.tutorialspoint.com/nodejs/index.htm"
+                                        target="_blank">TutorialsPoint Node.js</a></li>
+                                <li><a href="https://www.freecodecamp.org/news/learn-node-js/"
+                                        target="_blank">FreeCodeCamp Node.js Guide</a></li>
+                            </ul>
+                            <a href="/download/Nodejs.pdf" download class="download-button">Download Notes</a>
+                        </div>
+                        <button class="toggle-btn">Back</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- React.js Language Box -->
+            <div class="language-box">
+                <div class="card">
+                    <div class="front">
+                        <div class="language-content">
+                            <h2 class="title">React.js</h2>
+                            <div class="roadmap">
+                                <h3>Beginner</h3>
+                                <p>Step 1: Learn React basics and component structure</p>
+                                <p>Step 2: Understand JSX and state management</p>
+
+                                <h3>Intermediate</h3>
+                                <p>Step 3: Explore React hooks and context API</p>
+                                <p>Step 4: Build dynamic user interfaces with React</p>
+
+                                <h3>Advanced</h3>
+                                <p>Step 5: Master advanced topics (React Router, Performance Optimization)</p>
+                                <p>Step 6: Develop complex applications with React</p>
+                            </div>
+                        </div>
+                        <button class="toggle-btn">Show Resources</button>
+                    </div>
+                    <div class="back">
+                        <div class="resources-content">
+                            <h3>Resources</h3>
+                            <ul>
+                                <li><a href="https://reactjs.org/docs/getting-started.html" target="_blank">React
+                                        Documentation</a></li>
+                                <li><a href="https://www.freecodecamp.org/learn/front-end-libraries/react/"
+                                        target="_blank">FreeCodeCamp React Course</a></li>
+                                <li><a href="https://www.codecademy.com/learn/react-101" target="_blank">Codecademy
+                                        React Course</a></li>
+                                <li><a href="https://egghead.io/courses/the-beginner-s-guide-to-react"
+                                        target="_blank">Egghead React Guide</a></li>
+                            </ul>
+                            <a href="/download/ReactJS.pdf" download class="download-button">Download Notes</a>
+                        </div>
+                        <button class="toggle-btn">Back</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <section class="cheatsheets-section">
+            <h2 class="cheatsheets-title">Cheatsheets</h2>
+            <div class="cheatsheets-container">
+                <div class="cheatsheet-item">
+                    <img src="/images/Python.png" alt="Python" class="cheatsheet-image" />
+                    <h3 class="cheatsheet-language">Python</h3>
+                    <a href="/download/Python Cheatsheet.pdf" download class="download-button">Download Cheatsheet</a>
+                </div>
+                <div class="cheatsheet-item">
+                    <img src="/images/C.png" alt="C" class="cheatsheet-image" />
+                    <h3 class="cheatsheet-language">C</h3>
+                    <a href="/download/C Cheatsheet.pdf" download class="download-button">Download Cheatsheet</a>
+                </div>
+                <div class="cheatsheet-item">
+                    <img src="/images/C++.png" alt="C++" class="cheatsheet-image" />
+                    <h3 class="cheatsheet-language">C++</h3>
+                    <a href="/download/Cpp Cheatsheet.pdf" download class="download-button">Download Cheatsheet</a>
+                </div>
+                <div class="cheatsheet-item">
+                    <img src="/images/Js.jpeg" alt="JavaScript" class="cheatsheet-image" />
+                    <h3 class="cheatsheet-language">JavaScript</h3>
+                    <a href="/download/Js Cheatsheet.pdf" download class="download-button">Download Cheatsheet</a>
+                </div>
+                <div class="cheatsheet-item">
+                    <img src="/images/Nodejs.png" alt="Node.js" class="cheatsheet-image" />
+                    <h3 class="cheatsheet-language">Node.js</h3>
+                    <a href="/download/Nodejs Cheatsheet.pdf" download class="download-button">Download Cheatsheet</a>
+                </div>
+                <div class="cheatsheet-item">
+                    <img src="/images/Reactjs.png" alt="React.js" class="cheatsheet-image" />
+                    <h3 class="cheatsheet-language">React.js</h3>
+                    <a href="/download/Reactjs Cheatsheet.pdf" download class="download-button">Download Cheatsheet</a>
+                </div>
+                <div class="cheatsheet-item">
+                    <img src="/images/Php.png" alt="PHP" class="cheatsheet-image" />
+                    <h3 class="cheatsheet-language">PHP</h3>
+                    <a href="/download/Php Cheatsheet.pdf" download class="download-button">Download Cheatsheet</a>
+                </div>
+                <div class="cheatsheet-item">
+                    <img src="/images/Html.png" alt="HTML" class="cheatsheet-image" />
+                    <h3 class="cheatsheet-language">HTML</h3>
+                    <a href="/download/Html Cheatsheet.pdf" download class="download-button">Download Cheatsheet</a>
+                </div>
+                <div class="cheatsheet-item">
+                    <img src="/images/Css.jpeg" alt="CSS" class="cheatsheet-image" />
+                    <h3 class="cheatsheet-language">CSS</h3>
+                    <a href="/download/Css Cheatsheet.pdf" download class="download-button">Download Cheatsheet</a>
+                </div>
+                <div class="cheatsheet-item">
+                    <img src="/images/Java.png" alt="Java" class="cheatsheet-image" />
+                    <h3 class="cheatsheet-language">Java</h3>
+                    <a href="/download/Java Cheatsheet.pdf" download class="download-button">Download Cheatsheet</a>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Techguide. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="/contact">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+    <button id="back-to-top">↑</button>
+    <script src="/js/home.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const boxes = document.querySelectorAll('.language-box');
+
+            boxes.forEach(box => {
+                const showResourcesBtn = box.querySelector('.front .toggle-btn');
+                const backBtn = box.querySelector('.back .toggle-btn');
+
+                showResourcesBtn.addEventListener('click', () => {
+                    box.classList.add('flipped');
+                });
+
+                backBtn.addEventListener('click', () => {
+                    box.classList.remove('flipped');
+                });
+            });
+        });
+      
+    </script>
+</body>
+
+</html>

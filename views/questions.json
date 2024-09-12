@@ -1,0 +1,273 @@
+{
+    "python": [
+      {
+        "question": "What is the correct syntax to output 'Hello World' in Python?",
+        "options": ["echo 'Hello World'", "print('Hello World')", "cout << 'Hello World'", "printf('Hello World')"],
+        "answer": "print('Hello World')"
+      },
+      {
+        "question": "Which of the following is a mutable data type in Python?",
+        "options": ["tuple", "string", "list", "int"],
+        "answer": "list"
+      },
+      {
+        "question": "How do you start a comment in Python?",
+        "options": ["// comment", "# comment", "/* comment */", "-- comment"],
+        "answer": "# comment"
+      },
+      {
+        "question": "Which keyword is used to create a function in Python?",
+        "options": ["function", "def", "func", "define"],
+        "answer": "def"
+      },
+      {
+        "question": "What is the output of 3 + 2 * 2?",
+        "options": ["10", "7", "8", "5"],
+        "answer": "7"
+      }
+    ],
+    "c": [
+      {
+        "question": "Which data type is used to create a variable that should store text in C?",
+        "options": ["char", "int", "float", "string"],
+        "answer": "char"
+      },
+      {
+        "question": "Which function is used to print text to the console in C?",
+        "options": ["print()", "echo()", "printf()", "cout"],
+        "answer": "printf()"
+      },
+      {
+        "question": "How do you insert comments in C code?",
+        "options": ["# comment", "// comment", "/* comment */", "-- comment"],
+        "answer": "/* comment */"
+      },
+      {
+        "question": "Which operator is used to assign a value to a variable in C?",
+        "options": ["=", "==", "->", "<-"],
+        "answer": "="
+      },
+      {
+        "question": "Which library must be included to use the printf function?",
+        "options": ["stdio.h", "stdlib.h", "math.h", "string.h"],
+        "answer": "stdio.h"
+      }
+    ],
+    "c++": [
+      {
+        "question": "Which of the following is used to output text in C++?",
+        "options": ["echo", "print", "cout", "printf"],
+        "answer": "cout"
+      },
+      {
+        "question": "Which keyword is used to create a class in C++?",
+        "options": ["class", "struct", "object", "def"],
+        "answer": "class"
+      },
+      {
+        "question": "Which of the following is a correct identifier in C++?",
+        "options": ["var_name", "2name", "var name", "float"],
+        "answer": "var_name"
+      },
+      {
+        "question": "Which function is used to get input from the user in C++?",
+        "options": ["input", "cin", "get", "read"],
+        "answer": "cin"
+      },
+      {
+        "question": "What does the 'new' keyword do in C++?",
+        "options": ["Creates a new variable", "Allocates memory", "Initializes a class", "Deletes a variable"],
+        "answer": "Allocates memory"
+      }
+    ],
+    "java": [
+      {
+        "question": "Which method is the entry point for a Java program?",
+        "options": ["start()", "begin()", "main()", "init()"],
+        "answer": "main()"
+      },
+      {
+        "question": "Which keyword is used to inherit a class in Java?",
+        "options": ["extends", "inherits", "implements", "derives"],
+        "answer": "extends"
+      },
+      {
+        "question": "What is the size of an int data type in Java?",
+        "options": ["16-bit", "32-bit", "64-bit", "128-bit"],
+        "answer": "32-bit"
+      },
+      {
+        "question": "Which method can be used to find the length of a string in Java?",
+        "options": ["length()", "getSize()", "size()", "getLength()"],
+        "answer": "length()"
+      },
+      {
+        "question": "Which of the following is not a primitive data type in Java?",
+        "options": ["int", "float", "boolean", "String"],
+        "answer": "String"
+      }
+    ],
+    "javascript": [
+      {
+        "question": "Which of the following is a correct syntax to create a function in JavaScript?",
+        "options": ["function myFunction()", "def myFunction()", "create myFunction()", "func myFunction()"],
+        "answer": "function myFunction()"
+      },
+      {
+        "question": "How can you add a comment in JavaScript?",
+        "options": ["<!-- comment -->", "// comment", "/* comment */", "# comment"],
+        "answer": "// comment"
+      },
+      {
+        "question": "Which operator is used to assign a value to a variable in JavaScript?",
+        "options": ["*", "=", "-", "+"],
+        "answer": "="
+      },
+      {
+        "question": "Which method is used to convert a string to lowercase in JavaScript?",
+        "options": ["toLowerCase()", "lowercase()", "changeCase(lower)", "lower()"],
+        "answer": "toLowerCase()"
+      },
+      {
+        "question": "Which event occurs when the user clicks on an HTML element in JavaScript?",
+        "options": ["onclick", "onchange", "onmouseclick", "onmouseover"],
+        "answer": "onclick"
+      }
+    ],
+    "php": [
+      {
+        "question": "Which symbol is used to start a variable in PHP?",
+        "options": ["&", "$", "#", "*"],
+        "answer": "$"
+      },
+      {
+        "question": "Which function is used to print text in PHP?",
+        "options": ["echo", "print", "printf", "write"],
+        "answer": "echo"
+      },
+      {
+        "question": "How do you add a comment in PHP?",
+        "options": ["# comment", "// comment", "/* comment */", "-- comment"],
+        "answer": "// comment"
+      },
+      {
+        "question": "Which function is used to get the length of a string in PHP?",
+        "options": ["strlen()", "length()", "size()", "strlength()"],
+        "answer": "strlen()"
+      },
+      {
+        "question": "How do you start a PHP block of code?",
+        "options": ["<?php", "<script>", "<php>", "<?"],
+        "answer": "<?php"
+      }
+    ],
+    "html": [
+      {
+        "question": "What does HTML stand for?",
+        "options": ["Hyperlinks and Text Markup Language", "Hyper Text Markup Language", "Home Tool Markup Language", "Hyperlinks Text Markup Language"],
+        "answer": "Hyper Text Markup Language"
+      },
+      {
+        "question": "Which HTML tag is used to define an internal style sheet?",
+        "options": ["<css>", "<style>", "<script>", "<link>"],
+        "answer": "<style>"
+      },
+      {
+        "question": "Which HTML element is used to specify a footer for a document or section?",
+        "options": ["<bottom>", "<section>", "<footer>", "<foot>"],
+        "answer": "<footer>"
+      },
+      {
+        "question": "How can you make a numbered list in HTML?",
+        "options": ["<ol>", "<ul>", "<dl>", "<list>"],
+        "answer": "<ol>"
+      },
+      {
+        "question": "Which HTML element is used to define important text?",
+        "options": ["<important>", "<strong>", "<b>", "<em>"],
+        "answer": "<strong>"
+      }
+    ],
+    "css": [
+      {
+        "question": "What does CSS stand for?",
+        "options": ["Creative Style Sheets", "Colorful Style Sheets", "Cascading Style Sheets", "Computer Style Sheets"],
+        "answer": "Cascading Style Sheets"
+      },
+      {
+        "question": "Which HTML attribute is used to define inline styles?",
+        "options": ["class", "style", "font", "styles"],
+        "answer": "style"
+      },
+      {
+        "question": "Which CSS property controls the text size?",
+        "options": ["font-style", "text-style", "font-size", "text-size"],
+        "answer": "font-size"
+      },
+      {
+        "question": "Which property is used to change the background color?",
+        "options": ["background-color", "bgcolor", "color", "background"],
+        "answer": "background-color"
+      },
+      {
+        "question": "Which CSS property is used to change the text color of an element?",
+        "options": ["fgcolor", "text-color", "color", "font-color"],
+        "answer": "color"
+      }
+    ],
+    "reactjs": [
+      {
+        "question": "What is React?",
+        "options": ["A JavaScript library for building user interfaces", "A CSS framework", "A PHP library", "A database"],
+        "answer": "A JavaScript library for building user interfaces"
+      },
+      {
+        "question": "Which of the following is used to create a new React component?",
+"options": ["function ComponentName()", "class ComponentName extends React.Component", "new ComponentName()", "React.createComponent(ComponentName)"],
+"answer": "class ComponentName extends React.Component"
+},
+{
+"question": "What is JSX?",
+"options": ["A syntax extension for JavaScript", "A CSS preprocessor", "A database query language", "A new JavaScript library"],
+"answer": "A syntax extension for JavaScript"
+},
+{
+"question": "Which method is used to render a component to the DOM in React?",
+"options": ["render()", "mount()", "ReactDOM.render()", "componentDidMount()"],
+"answer": "ReactDOM.render()"
+},
+{
+"question": "What is the purpose of props in React?",
+"options": ["To manage state", "To pass data between components", "To handle events", "To define styles"],
+"answer": "To pass data between components"
+}
+],
+"nodejs": [
+{
+"question": "What is Node.js?",
+"options": ["A JavaScript runtime built on Chrome's V8 engine", "A CSS framework", "A database", "A front-end library"],
+"answer": "A JavaScript runtime built on Chrome's V8 engine"
+},
+{
+"question": "Which module is used to create an HTTP server in Node.js?",
+"options": ["http", "fs", "path", "url"],
+"answer": "http"
+},
+{
+"question": "Which method is used to read a file asynchronously in Node.js?",
+"options": ["fs.readFile()", "fs.read()", "fs.open()", "fs.get()"],
+"answer": "fs.readFile()"
+},
+{
+"question": "What is the purpose of the 'require' function in Node.js?",
+"options": ["To include modules", "To read files", "To create an HTTP server", "To write to the console"],
+"answer": "To include modules"
+},
+{
+"question": "Which package manager is used with Node.js?",
+"options": ["npm", "yarn", "bower", "composer"],
+"answer": "npm"
+}
+]
+}
+  

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/images/logo1.png" type="image/x-icon">
+  <link rel="stylesheet" href="/css/styles.css">
+  <title>Login - Techguide</title>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+
+<body>
+  <!-- Error Message Display -->
+  <% if (typeof message !== 'undefined') { %>
+    <script>
+      alert('<%= message %>');
+    </script>
+  <% } %>
+
+  <header class="site-header">
+    <div class="header-content">
+      <img src="/images/logo1.png" alt="Techguide Logo" class="site-logo">
+      <h1 class="site-name">Techguide</h1>
+    </div>
+  </header>
+
+  <div class="container">
+    <h2>Login</h2>
+
+    <!-- Login Form -->
+    <form id="login-form" action="/login" method="POST" onsubmit="return validateLoginForm()">
+      <input type="email" id="email" name="email" placeholder="Email" required>
+      <input type="password" id="password" name="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+    
+    <!-- Sign Up Link -->
+    <p>Don't have an account? <a href="/signup">Sign Up</a></p>
+    <div class="g-recaptcha" style="margin-left: 50px;" data-sitekey="6LePlzIqAAAAAGre-C57AWwDB8UukLlqA0WqcbKc"></div>
+  </div>
+
+  <script>
+    function validateLoginForm() {
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!emailPattern.test(email)) {
+        alert('Please enter a valid email address.');
+        return false;
+      }
+
+      if (password.length < 3) {
+        alert('Password must be at least 3 characters long.');
+        return false;
+      }
+      var captchaResponse = grecaptcha.getResponse();
+            if (captchaResponse.length === 0) {
+                alert('Please complete the CAPTCHA before logging in.');
+                return false;
+            }
+      
+      return true;
+
+      
+    }
+
+  </script>
+</body>
+
+</html>

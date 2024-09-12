@@ -1,0 +1,590 @@
+/* Remove Horizontal Scrollbar */
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Ensure no horizontal scroll */
+}
+
+main {
+    padding: 20px;
+    background: linear-gradient(135deg, #f7f9fc, #edf2f7);
+}
+
+
+/* Main Heading Section */
+.main-heading-container {
+    text-align: center;
+    margin-bottom: 40px;
+    background: linear-gradient(135deg, #1c80eb, #007bff);
+    padding: 20px;
+    border-radius: 12px;
+    color: #fff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    font-size: 32px;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    transition: background 0.4s ease-in-out, box-shadow 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+
+.main-heading-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.2));
+    transition: opacity 0.4s ease-in-out;
+    opacity: 0;
+    z-index: 1;
+}
+
+.main-heading-container:hover::before {
+    opacity: 1;
+}
+
+.main-heading-container:hover {
+    background: linear-gradient(135deg, #1f87ff, hsl(206, 100%, 50%));
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    transform: scale(1.10);
+}
+
+/* Moving Text Animation */
+.tagline-container {
+    position: relative;
+    width: 100%;
+    /* overflow: hidden; */
+    display: inline-block;
+    white-space: nowrap; /* Ensure text does not wrap */
+}
+
+.tagline {
+    display: inline-block;
+    position: absolute;
+    top: -25px;
+    left: 40%;
+    animation: moveText 6s linear infinite;
+    color: #e0e0e0;
+    font-size: 24px;
+}
+
+@keyframes moveText {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Add Underline Animation for Headings */
+.main-heading-container h1, .main-heading-container h2 {
+    position: relative;
+    display: inline-block; /* Ensure underline animates properly */
+}
+
+.main-heading-container h1::after, .main-heading-container h2::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #ffffff;
+    transition: width 0.3s ease-in-out;
+}
+
+.main-heading-container h1:hover::after, .main-heading-container h2:hover::after {
+    width: 100%;
+}
+
+/* Premium Colors */
+.main-heading-container h1 {
+    color: #ffffff;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.main-heading-container h2 {
+    color: #cbe5fd;
+    font-size: 24px;
+    margin-top: 0;
+}
+
+
+/* Card Styling */
+.roadmap-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 100px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.language-box {
+    position: relative;
+    width: 38%;
+    height: 430px;
+    perspective: 1200px;
+    transition: transform 0.6s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.language-box .front, .language-box .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transition: transform 0.6s ease-in-out, box-shadow 0.3s ease-in-out;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.language-box .front {
+    background: linear-gradient(135deg, #ffffff, #f0f4f8);
+    color: #333;
+}
+
+.language-box .back {
+    background: linear-gradient(135deg, #f0f4f8, #ffffff);
+    transform: rotateY(180deg);
+    color: #333;
+}
+
+.language-box.flipped .front {
+    transform: rotateY(-180deg);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.language-box.flipped .back {
+    transform: rotateY(0deg);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Card Hover Effects */
+.language-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.language-box .front .title, .language-box .back .title {
+    font-size: 24px;
+    color: #0056b3;
+    transition: color 0.3s ease-in-out, text-decoration 0.3s ease-in-out;
+    position: relative;
+    display: inline-block;
+}
+
+
+.language-box .front .title::after, .language-box .back .title::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #0056b3;
+    transition: width 0.3s ease-in-out;
+}
+
+.language-box .front .title:hover::after, .language-box .back .title:hover::after {
+    width: 100%;
+}
+
+.language-box .front .title:hover, .language-box .back .title:hover {
+    color: #003b7a;
+}
+
+/* Roadmap Container Enhancements */
+.roadmap {
+    max-height: 260px;
+    overflow-y: auto;
+    padding-right: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, transform 0.3s ease;
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 10px 15px;
+    margin-top: 10px;
+}
+
+.roadmap:hover {
+    background: #e3e9ef;
+    transform: scale(1.01);
+}
+
+/* Custom Scrollbar */
+.roadmap::-webkit-scrollbar {
+    width: 8px;
+}
+
+.roadmap::-webkit-scrollbar-thumb {
+    background: #0056b3;
+    border-radius: 4px;
+}
+
+.roadmap::-webkit-scrollbar-track {
+    background: #f0f4f8;
+}
+
+/* Resource Links Styling */
+.resources-content ul li a {
+    color: #0056b3;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease, text-decoration 0.3s ease, transform 0.3s ease;
+    padding: 5px 0;
+    display: inline-block;
+    background: linear-gradient(to right, #f0f4f8, #f0f4f8) no-repeat;
+    background-size: 0 100%;
+}
+
+.resources-content ul li a:hover {
+    color: #003b7a;
+    background-size: 100% 100%;
+    background-image: linear-gradient(to right, #e0e5e8, #d0d7dc);
+    border-radius: 8px;
+    transform: scale(1.05);
+}
+
+/* Button Enhancements */
+.toggle-btn {
+    display: block;
+    margin: 10px auto;
+    padding: 12px 24px;
+    border: none;
+    background: linear-gradient(135deg, #0056b3, #00b4d8);
+    color: #fff;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.toggle-btn:hover {
+    background: linear-gradient(135deg, #004494, #0099c0);
+    transform: scale(1.15);
+}
+
+.download-button {
+    position: relative;
+    left:37%;
+    display: inline-block;
+    padding: 12px 20px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    margin-top: auto; /* Ensures the button is positioned at the bottom of the card */
+}
+
+.download-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.download-button:active {
+    background-color: #003d80;
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.download-button::before {
+    content: "📄";
+    margin-right: 8px;
+}
+
+.download-button::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: width 0.3s ease;
+    margin-top: 5px;
+}
+
+.download-button:hover::after {
+    width: 100%;
+}
+
+/* Cheatsheets Section Styles */
+.cheatsheets-section {
+    padding: 80px 20px; /* Ensures space around the section */
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: #ffffff;
+    text-align: center;
+    animation: fadeInUp 1s ease-in-out;
+    margin-top: 80px; /* Extra margin to separate from Roadmap section */
+}
+
+/* Updated Cheatsheets Section Styles */
+.cheatsheets-title {
+    font-size: 3.5rem; /* Increased font size */
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background:  linear-gradient(135deg, #ff512f, #dd2476);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    position: relative;
+    padding: 20px;
+    border-radius: 15px;
+    display: inline-block;
+    animation: gradientText 5s ease-in-out infinite, fadeInUp 1s ease-in-out;
+    transition: transform 0.3s ease, background 0.5s ease, color 0.5s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+/* Adding a background to the heading */
+.cheatsheets-title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    z-index: -1;
+    border-radius: 15px;
+    animation: gradientBackground 5s ease infinite;
+}
+
+/* Gradient Animation for Heading Background */
+@keyframes gradientBackground {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Adding a subtle hover effect to the heading */
+.cheatsheets-title:hover {
+    transform: scale(1.15); /* Slight zoom on hover */
+    background: linear-gradient(135deg, #24c6dc, #ff512f, #dd2476);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    color:  #ff512f; /* Ensure text color is visible */
+    transition: transform 0.5s ease, background 0.5s ease, color 0.5s ease;
+}
+
+
+.cheatsheets-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cheatsheet-item {
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px;
+    width: 250px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.cheatsheet-item:hover {
+    transform: translateY(-10px) scale(1.05); /* Adding scale on hover */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+}
+
+.cheatsheet-image {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Hover Effect for Cheatsheet Image */
+.cheatsheet-image:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+    filter: brightness(1.2); /* Brighten the image on hover */
+}
+
+.cheatsheet-language {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.cheatsheet-language::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(135deg, #ff512f, #dd2476);
+    left: 50%;
+    bottom: 0;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.cheatsheet-language:hover::after {
+    width: 100%;
+}
+
+.download-button {
+    display: block;
+    width: max-content;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #ffffff;
+    background: linear-gradient(135deg, #ff512f, #dd2476);
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+    position: relative;
+   left:5%
+}
+
+.download-button:hover {
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    transform: scale(1.05);
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .cheatsheet-item {
+        width: 200px;
+        margin: 15px;
+    }
+
+    .cheatsheet-image {
+        width: 80px;
+        height: 80px;
+    }
+
+    .cheatsheet-language {
+        font-size: 1.3rem;
+    }
+
+    .download-button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .cheatsheet-item {
+        width: 45%;
+    }
+
+    .cheatsheet-container {
+        justify-content: space-around;
+    }
+}
+
+@media (max-width: 480px) {
+    .cheatsheet-item {
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    .cheatsheets-title {
+        font-size: 2.5rem; /* Adjusted font size for smaller screens */
+    }
+
+    .cheatsheet-language {
+        font-size: 1.2rem;
+    }
+
+    .download-button {
+        padding: 7px 14px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Responsive Styles */
+
+/* For tablets and smaller screens (landscape mode) */
+@media screen and (max-width: 1024px) {
+    .language-box {
+        width: 48%; /* Maintain two cards per row */
+        height: 380px; /* Adjusted height */
+    }
+
+    .main-heading-container {
+        font-size: 28px; /* Slightly smaller font for headings */
+    }
+}
+
+/* For tablets and small devices (portrait mode) */
+@media screen and (max-width: 768px) {
+    .language-box {
+        width: 100%; /* One card per row */
+        height: 360px; /* Adjusted height */
+    }
+
+    .main-heading-container {
+        font-size: 24px; /* Slightly smaller font for headings */
+    }
+
+    .resources-content ul li a {
+        font-size: 16px; /* Adjusted for better readability on small screens */
+    }
+
+    .toggle-btn {
+        padding: 10px 20px; /* Adjust button padding */
+        font-size: 14px; /* Adjust button font size */
+    }
+}
+
+/* For mobile devices */
+@media screen and (max-width: 480px) {
+    .language-box {
+        width: 100%; /* One card per row */
+        height: 340px; /* Adjusted height */
+    }
+
+    .main-heading-container {
+        font-size: 20px; /* Smaller font for headings */
+    }
+
+    .resources-content ul li a {
+        font-size: 14px; /* Smaller font size */
+    }
+
+    .toggle-btn {
+        padding: 8px 16px; /* Adjust button padding */
+        font-size: 12px; /* Adjust button font size */
+    }
+}

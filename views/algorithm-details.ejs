@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algorithm Solutions</title>
+  <link rel="shortcut icon" href="/images/logo1.png" type="image/x-icon">
+  <link rel="stylesheet" href="/css/enhancement.css">
+  <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="/css/algorithm-details.css">
+  
+  <script>
+    // JavaScript to handle language selection and tab display
+    function showSolutions(language) {
+      // Hide all solution contents initially
+      document.querySelectorAll('.solution-content').forEach(solution => solution.style.display = 'none');
+
+      // Show solutions related to the selected language
+      if (language) {
+        const selectedSolutions = document.querySelector(`.solution-content.${language}`);
+        if (selectedSolutions) {
+          selectedSolutions.style.display = 'block';
+
+          // Set the first tab as active by default
+          const tabs = selectedSolutions.querySelectorAll('.tab');
+          if (tabs.length > 0) {
+            tabs[0].classList.add('active');
+            showTabContent(language, tabs[0].getAttribute('data-type'));
+          }
+        }
+      }
+    }
+
+    function showTabContent(language, type) {
+      // Hide all contents of the selected language
+      document.querySelectorAll(`.solution-content.${language} .solution-detail`).forEach(content => content.classList.remove('active'));
+
+      // Show the active content type
+      const activeContent = document.querySelector(`.solution-content.${language} .solution-detail.${type}`);
+      if (activeContent) {
+        activeContent.classList.add('active');
+      }
+    }
+
+    function activateTab(language, type) {
+      // Remove active class from all tabs
+      document.querySelectorAll(`.solution-content.${language} .tab`).forEach(tab => tab.classList.remove('active'));
+
+      // Add active class to the clicked tab
+      document.querySelector(`.solution-content.${language} .tab[data-type="${type}"]`).classList.add('active');
+
+      // Show the relevant content
+      showTabContent(language, type);
+    }
+
+    function toggleComparison() {
+        const comparisonSection = document.querySelector('.comparison-section');
+        comparisonSection.classList.toggle('active');
+      
+        // Ensure the container expands to fit the content
+        if (comparisonSection.classList.contains('active')) {
+          comparisonSection.style.maxHeight = comparisonSection.scrollHeight + 'px';
+        } else {
+          comparisonSection.style.maxHeight = '0';
+        }
+    }
+    
+    // Call showSolutions on page load to show default 'C' language solutions
+    window.onload = function() {
+      // Set default language to 'C' and show its solutions
+      const defaultLanguage = 'C';
+      document.getElementById('languageSelect').value = defaultLanguage;
+      showSolutions(defaultLanguage);
+    };
+  </script>
+</head>
+<body class="fade-in">
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1 class="website-name">Techguide</h1>
+            </div>
+            <nav class="nav-links header-links">
+                <ul>
+                    <li><a href="/learning" class="nav-link alert-login">Learning</a></li>
+                    <li><a href="/quizzes" class="nav-link alert-login">Quizzes</a></li>
+                    <li><a href="/" class="nav-link alert-login">Home</a></li>
+                    <li><a href="/login" class="nav-link">Login</a></li>
+                    <li><a href="/signup" class="nav-link">Sign Up</a></li>
+                </ul>
+            </nav>
+            <div class="user-menu">
+                <div class="user-icon" id="user-icon">
+                    <img src="/images/<%= profileIcon %>" alt="User Profile" class="user-profile-icon">
+                    <span class="username"><%= username %></span>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <a href="/profile">Profile</a>
+                    <a href="/downloads">My Downloads</a>
+                    <a href="/attempts">Track Scores</a>
+                    <a href="/logout" id="logout-link">Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+  <div class="container1">
+    <h1>Algorithm: <%= algorithm.name %></h1>
+    <p><%= algorithm.description %></p>
+
+    <!-- Dropdown to select language -->
+    <label for="languageSelect">Select Language:</label>
+    <select id="languageSelect" onchange="showSolutions(this.value)">
+      <option value="">--Select--</option>
+      <% Object.keys(algorithm.solutions).forEach(function(language) { %>
+        <option value="<%= language %>"><%= language %></option>
+      <% }); %>
+    </select>
+
+    <!-- Solutions Container -->
+    <div id="solutionsContainer">
+      <% Object.keys(algorithm.solutions).forEach(function(language) { %>
+        <div class="solution-content <%= language %>" style="display: none;">
+          <!-- Tabs for solution types -->
+          <div class="tabs">
+            <div class="tab active" data-type="bruteforce" onclick="activateTab('<%= language %>', 'bruteforce')">Bruteforce</div>
+            <div class="tab" data-type="best" onclick="activateTab('<%= language %>', 'best')">Best</div>
+            <div class="tab" data-type="optimized" onclick="activateTab('<%= language %>', 'optimized')">Optimized</div>
+          </div>
+
+          <!-- Tab Contents for each solution type -->
+          <% Object.keys(algorithm.solutions[language]).forEach(function(type) { %>
+            <div class="solution-detail <%= type %>">
+              <h2><%= type.charAt(0).toUpperCase() + type.slice(1) %> Solution</h2>
+              <pre><code><%= algorithm.solutions[language][type].code %></code></pre>
+              <p><strong>Complexity:</strong> <%= algorithm.solutions[language][type].complexity %></p>
+              <p><strong>Explanation:</strong> <%= algorithm.solutions[language][type].explanation %></p>
+            </div>
+          <% }); %>
+        </div>
+      <% }); %>
+    </div>
+
+    <!-- Show Comparison Button -->
+    <button onclick="toggleComparison()">Show Comparison</button>
+
+    <!-- Comparison Section -->
+    <div class="comparison-section">
+      <% Object.keys(algorithm.comparison).forEach(function(type) { %>
+        <div class="comparison-detail">
+          <h2><%= type.charAt(0).toUpperCase() + type.slice(1) %> Comparison</h2>
+          <p><strong>Description:</strong> <%= algorithm.comparison[type].description %></p>
+          <p><strong>Time Complexity:</strong> <%= algorithm.comparison[type].timeComplexity %></p>
+          <p><strong>Space Complexity:</strong> <%= algorithm.comparison[type].spaceComplexity %></p><br>
+          <p><strong>Advantages:</strong></p>
+          <ul>
+            <% algorithm.comparison[type].advantages.forEach(function(advantage) { %>
+              <li><%= advantage %></li>
+            <% }); %>
+          </ul>
+          <p><strong>Disadvantages:</strong></p>
+          <ul>
+            <% algorithm.comparison[type].disadvantages.forEach(function(disadvantage) { %>
+              <li><%= disadvantage %></li>
+            <% }); %>
+          </ul>
+          <p><strong>Use Cases:</strong></p>
+          <ul>
+            <% algorithm.comparison[type].useCases.forEach(function(useCase) { %>
+              <li><%= useCase %></li>
+            <% }); %>
+          </ul>
+          <img src="/images/graph.png" alt="">
+        </div>
+      <% }); %>
+    </div>
+  </div>
+  <footer>
+    <div class="container">
+        <p>&copy; 2024 Techguide. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="/contact">Contact Us</a>
+        </div>
+    </div>
+</footer>
+<button id="back-to-top">↑</button>
+
+<script src="/js/home.js"></script>
+
+</body>
+</html>

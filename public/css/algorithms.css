@@ -1,0 +1,218 @@
+/* Main Section */
+main {
+    padding: 20px;
+    background: url('/images/coding.jpeg') no-repeat center center, 
+                linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5)); /* Adjusted gradient opacity */
+    background-size: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 1s ease-in-out;
+    margin-top: 20px;
+    position: relative;
+}
+
+/* Darker Overlay for Better Image Visibility */
+main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* Semi-transparent dark overlay */
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.main-heading-container, .question-list {
+    position: relative;
+    z-index: 2; /* Ensure content is above the overlay */
+}
+
+/* Main Heading Container */
+.main-heading-container {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.main-heading-container h1 {
+    color: transparent;
+    font-size: 3em;
+    background: linear-gradient(45deg, #00c6ff, #0072ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: gradientBackground 4s linear infinite;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+
+.main-heading-container h1::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    background: #0072ff;
+    transition: width 0.4s ease;
+    margin: 0 auto;
+}
+
+.main-heading-container h1:hover::after {
+    width: 100%;
+}
+
+/* Question List */
+.question-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Question Item Styles with Hover Animation */
+.question-item {
+    background: linear-gradient(145deg, #ffffff, #f1f1f1);
+    border-radius: 10px;
+    padding: 20px;
+    width: calc(50% - 20px); /* Two items per row on larger screens */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    animation: fadeInUp 0.6s ease-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 220px; /* Fixed height for consistent alignment */
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover effect for question items */
+.question-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    background-color: #f0faff;
+}
+
+/* Question Item Heading */
+.question-item h2 {
+    color: #0072ff;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 5px;
+}
+
+.question-item h2::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #00c6ff;
+    transition: width 0.4s ease;
+}
+
+.question-item h2:hover::after {
+    width: 100%;
+}
+
+.question-item p {
+    color: #555;
+    font-size: 1em;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Ensure description fills the space */
+}
+
+.question-item a.view-solution {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #00c6ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.question-item a.view-solution:hover {
+    background: #0072ff;
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes gradientBackground {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .main-heading-container h1 {
+        font-size: 2.5em;
+    }
+
+    .question-item {
+        width: calc(50% - 20px); /* Two items per row on medium screens */
+    }
+}
+
+@media (max-width: 992px) {
+    .main-heading-container h1 {
+        font-size: 2em;
+    }
+
+    .question-item {
+        width: 100%; /* Full width on smaller screens */
+        height: auto; /* Auto height for better content fitting */
+    }
+}
+
+@media (max-width: 768px) {
+    .main-heading-container h1 {
+        font-size: 1.5em;
+    }
+
+    .question-item {
+        width: 100%; /* Full width on even smaller screens */
+        padding: 15px; /* Reduce padding for smaller screens */
+        height: auto; /* Auto height for better content fitting */
+    }
+}
+
+@media (max-width: 576px) {
+    .main-heading-container h1 {
+        font-size: 1.2em;
+    }
+
+    .question-item {
+        width: 100%; /* Full width on very small screens */
+        padding: 10px; /* Further reduce padding for very small screens */
+        height: auto; /* Auto height for better content fitting */
+    }
+}

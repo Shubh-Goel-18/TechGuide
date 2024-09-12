@@ -1,0 +1,558 @@
+[
+    {
+        "id": 1,
+        "question": "Two Sum",
+        "description": "Given an array of integers, return indices of the two numbers such that they add up to a specific target.",
+        "solutions": {
+            "C": {
+                "bruteforce": {
+                    "code": "#include <stdio.h>\n#include <limits.h>\nint* twoSum(int* nums, int numsSize, int target, int* returnSize) {\n    int* result = (int*)malloc(2 * sizeof(int));\n    *returnSize = 2;\n    for (int i = 0; i < numsSize; i++) {\n        for (int j = i + 1; j < numsSize; j++) {\n            if (nums[i] + nums[j] == target) {\n                result[0] = i;\n                result[1] = j;\n                return result;\n            }\n        }\n    }\n    return NULL;\n}",
+                    "complexity": "O(n^2)",
+                    "explanation": "This approach uses two nested loops to check all pairs of numbers."
+                },
+                "best": {
+                    "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <stdbool.h>\n#include <limits.h>\n\ntypedef struct {\n    int key;\n    int value;\n} HashMapEntry;\n\ntypedef struct {\n    HashMapEntry* entries;\n    int size;\n} HashMap;\n\nHashMap* createHashMap(int size) {\n    HashMap* map = (HashMap*)malloc(sizeof(HashMap));\n    map->entries = (HashMapEntry*)malloc(size * sizeof(HashMapEntry));\n    map->size = size;\n    for (int i = 0; i < size; i++) {\n        map->entries[i].key = INT_MIN;\n    }\n    return map;\n}\n\nint hash(int key, int size) {\n    return key % size;\n}\n\nvoid insert(HashMap* map, int key, int value) {\n    int index = hash(key, map->size);\n    map->entries[index].key = key;\n    map->entries[index].value = value;\n}\n\nint get(HashMap* map, int key) {\n    int index = hash(key, map->size);\n    if (map->entries[index].key == key) {\n        return map->entries[index].value;\n    }\n    return INT_MIN;\n}\n\nint* twoSum(int* nums, int numsSize, int target, int* returnSize) {\n    HashMap* map = createHashMap(numsSize);\n    int* result = (int*)malloc(2 * sizeof(int));\n    *returnSize = 2;\n    for (int i = 0; i < numsSize; i++) {\n        int complement = target - nums[i];\n        int index = get(map, complement);\n        if (index != INT_MIN) {\n            result[0] = index;\n            result[1] = i;\n            free(map->entries);\n            free(map);\n            return result;\n        }\n        insert(map, nums[i], i);\n    }\n    free(map->entries);\n    free(map);\n    return NULL;\n}",
+                    "complexity": "O(n)",
+                    "explanation": "This approach uses a hash map to store the indices of the numbers and find the complement efficiently."
+                },
+                "optimized": {
+                    "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <stdbool.h>\n#include <limits.h>\n\nint* twoSum(int* nums, int numsSize, int target, int* returnSize) {\n    int* result = (int*)malloc(2 * sizeof(int));\n    *returnSize = 2;\n    int* map = (int*)malloc(2 * numsSize * sizeof(int));\n    for (int i = 0; i < 2 * numsSize; i++) {\n        map[i] = INT_MIN;\n    }\n    for (int i = 0; i < numsSize; i++) {\n        int complement = target - nums[i];\n        if (map[complement + numsSize] != INT_MIN) {\n            result[0] = map[complement + numsSize];\n            result[1] = i;\n            free(map);\n            return result;\n        }\n        map[nums[i] + numsSize] = i;\n    }\n    free(map);\n    return NULL;\n}",
+                    "complexity": "O(n)",
+                    "explanation": "This approach uses a single array as a hash map to achieve linear time complexity."
+                }
+            },
+            "CPP": {
+                "bruteforce": {
+                    "code": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nvector<int> twoSum(vector<int>& nums, int target) {\n    vector<int> result;\n    for (int i = 0; i < nums.size(); i++) {\n        for (int j = i + 1; j < nums.size(); j++) {\n            if (nums[i] + nums[j] == target) {\n                result.push_back(i);\n                result.push_back(j);\n                return result;\n            }\n        }\n    }\n    return result;\n}",
+                    "complexity": "O(n^2)",
+                    "explanation": "This approach uses two nested loops to check all pairs of numbers."
+                },
+                "best": {
+                    "code": "#include <iostream>\n#include <vector>\n#include <unordered_map>\nusing namespace std;\n\nvector<int> twoSum(vector<int>& nums, int target) {\n    unordered_map<int, int> map;\n    vector<int> result;\n    for (int i = 0; i < nums.size(); i++) {\n        int complement = target - nums[i];\n        if (map.find(complement) != map.end()) {\n            result.push_back(map[complement]);\n            result.push_back(i);\n            return result;\n        }\n        map[nums[i]] = i;\n    }\n    return result;\n}",
+                    "complexity": "O(n)",
+                    "explanation": "This approach uses an unordered map to store the indices of the numbers and find the complement efficiently."
+                },
+                "optimized": {
+                    "code": "#include <iostream>\n#include <vector>\n#include <unordered_map>\nusing namespace std;\n\nvector<int> twoSum(vector<int>& nums, int target) {\n    unordered_map<int, int> map;\n    vector<int> result;\n    for (int i = 0; i < nums.size(); i++) {\n        int complement = target - nums[i];\n        if (map.find(complement) != map.end()) {\n            result.push_back(map[complement]);\n            result.push_back(i);\n            return result;\n        }\n        map[nums[i]] = i;\n    }\n    return result;\n}",
+                    "complexity": "O(n)",
+                    "explanation": "This approach uses an unordered map to achieve linear time complexity."
+                }
+            },
+            "Python": {
+                "bruteforce": {
+                    "code": "def two_sum(nums, target):\n    for i in range(len(nums)):\n        for j in range(i + 1, len(nums)):\n            if nums[i] + nums[j] == target:\n                return [i, j]",
+                    "complexity": "O(n^2)",
+                    "explanation": "This approach uses two nested loops to check all pairs of numbers."
+                },
+                "best": {
+                    "code": "def two_sum(nums, target):\n    num_to_index = {}\n    for i, num in enumerate(nums):\n        complement = target - num\n        if complement in num_to_index:\n            return [num_to_index[complement], i]\n        num_to_index[num] = i",
+                    "complexity": "O(n)",
+                    "explanation": "This approach uses a hash map to reduce the time complexity."
+                },
+                "optimized": {
+                    "code": "def two_sum(nums, target):\n    num_to_index = {}\n    for i, num in enumerate(nums):\n        complement = target - num\n        if complement in num_to_index:\n            return [num_to_index[complement], i]\n        num_to_index[num] = i",
+                    "complexity": "O(n)",
+                    "explanation": "This approach uses a hash map to achieve linear time complexity."
+                }
+            }
+        },
+        "comparison": {
+            "bruteforce": {
+                "description": "The brute-force approach involves using nested loops to check all possible pairs of numbers in the array to find two that add up to the target sum.",
+                "timeComplexity": "O(n^2)",
+                "spaceComplexity": "O(1)",
+                "advantages": [
+                    "Simple to implement and understand.",
+                    "No additional data structures are required."
+                ],
+                "disadvantages": [
+                    "Inefficient for large input sizes due to quadratic time complexity.",
+                    "The performance degrades significantly as the input size increases."
+                ],
+                "useCases": [
+                    "Useful for small datasets or when simplicity is preferred over performance.",
+                    "May be a good choice in educational settings to illustrate basic algorithm concepts."
+                ]
+            },
+            "best": {
+                "description": "The best approach uses a hash map (or dictionary) to store the indices of the numbers as they are processed. It checks if the complement of the current number (i.e., target - current number) exists in the hash map.",
+                "timeComplexity": "O(n)",
+                "spaceComplexity": "O(n)",
+                "advantages": [
+                    "Efficient with linear time complexity, suitable for large datasets.",
+                    "Provides a quick lookup for complements, improving performance significantly."
+                ],
+                "disadvantages": [
+                    "Requires additional space for the hash map, leading to higher space complexity.",
+                    "May involve additional overhead for managing the hash map."
+                ],
+                "useCases": [
+                    "Ideal for scenarios where the input size is large and performance is a concern.",
+                    "Commonly used in practice due to its efficiency and straightforward implementation."
+                ]
+            },
+            "optimized": {
+                "description": "The optimized approach refines the best approach by using a more memory-efficient data structure or optimization techniques to achieve similar time complexity but with reduced space requirements or faster execution.",
+                "timeComplexity": "O(n)",
+                "spaceComplexity": "O(n) or O(1) (depending on the implementation)",
+                "advantages": [
+                    "Maintains linear time complexity while potentially reducing space complexity.",
+                    "Optimizations can further enhance performance and efficiency."
+                ],
+                "disadvantages": [
+                    "Implementation can be more complex compared to the basic hash map approach.",
+                    "Space savings may vary depending on the specific optimization techniques used."
+                ],
+                "useCases": [
+                    "Suitable for environments where memory usage is critical, or where further optimization of the best approach is desired.",
+                    "Applicable in cases where performance needs to be maximized beyond the best approach."
+                ]
+            }
+        }
+    },
+    {
+        "id": 2,
+        "question": "Longest Common Prefix",
+        "description": "Write a function to find the longest common prefix string amongst an array of strings.",
+        "solutions": {
+            "C": {
+                "bruteforce": {
+                    "code": "#include <stdio.h>\n#include <string.h>\nchar* longestCommonPrefix(char** strs, int strsSize) {\n    if (strsSize == 0) return \"\";\n    char* prefix = (char*)malloc(100 * sizeof(char));\n    for (int i = 0; i < strlen(strs[0]); i++) {\n        for (int j = 1; j < strsSize; j++) {\n            if (strs[j][i] != strs[0][i]) {\n                prefix[i] = '\\0';\n                return prefix;\n            }\n        }\n        prefix[i] = strs[0][i];\n    }\n    prefix[strlen(strs[0])] = '\\0';\n    return prefix;\n}",
+                    "complexity": "O(S * N)",
+                    "explanation": "This approach compares characters one by one for all strings."
+                },
+                "best": {
+                    "code": "#include <stdio.h>\n#include <string.h>\nchar* longestCommonPrefix(char** strs, int strsSize) {\n    if (strsSize == 0) return \"\";\n    int minLen = strlen(strs[0]);\n    for (int i = 1; i < strsSize; i++) {\n        int j = 0;\n        while (j < minLen && strs[i][j] == strs[0][j]) j++;\n        minLen = j;\n    }\n    char* prefix = (char*)malloc((minLen + 1) * sizeof(char));\n    strncpy(prefix, strs[0], minLen);\n    prefix[minLen] = '\\0';\n    return prefix;\n}",
+                    "complexity": "O(S * N)",
+                    "explanation": "This approach finds the minimum length of common prefix by comparing all strings."
+                },
+                "optimized": {
+                    "code": "#include <stdio.h>\n#include <string.h>\nchar* longestCommonPrefix(char** strs, int strsSize) {\n    if (strsSize == 0) return \"\";\n    int minLen = strlen(strs[0]);\n    for (int i = 1; i < strsSize; i++) {\n        int j = 0;\n        while (j < minLen && strs[i][j] == strs[0][j]) j++;\n        minLen = j;\n    }\n    char* prefix = (char*)malloc((minLen + 1) * sizeof(char));\n    strncpy(prefix, strs[0], minLen);\n    prefix[minLen] = '\\0';\n    return prefix;\n}",
+                    "complexity": "O(S * N)",
+                    "explanation": "This approach optimizes the comparison by directly finding the common prefix."
+                }
+            },
+            "CPP": {
+                "bruteforce": {
+                    "code": "#include <iostream>\n#include <vector>\n#include <string>\nusing namespace std;\n\nstring longestCommonPrefix(vector<string>& strs) {\n    if (strs.empty()) return \"\";\n    for (int i = 0; i < strs[0].size(); i++) {\n        for (int j = 1; j < strs.size(); j++) {\n            if (i == strs[j].size() || strs[j][i] != strs[0][i]) {\n                return strs[0].substr(0, i);\n            }\n        }\n    }\n    return strs[0];\n}",
+                    "complexity": "O(S * N)",
+                    "explanation": "This approach compares each character in all strings."
+                },
+                "best": {
+                    "code": "#include <iostream>\n#include <vector>\n#include <string>\nusing namespace std;\n\nstring longestCommonPrefix(vector<string>& strs) {\n    if (strs.empty()) return \"\";\n    int minLen = strs[0].size();\n    for (int i = 1; i < strs.size(); i++) {\n        int j = 0;\n        while (j < minLen && j < strs[i].size() && strs[i][j] == strs[0][j]) j++;\n        minLen = j;\n    }\n    return strs[0].substr(0, minLen);\n}",
+                    "complexity": "O(S * N)",
+                    "explanation": "This approach finds the common prefix length and extracts the substring."
+                },
+                "optimized": {
+                    "code": "#include <iostream>\n#include <vector>\n#include <string>\nusing namespace std;\n\nstring longestCommonPrefix(vector<string>& strs) {\n    if (strs.empty()) return \"\";\n    int minLen = strs[0].size();\n    for (int i = 1; i < strs.size(); i++) {\n        int j = 0;\n        while (j < minLen && j < strs[i].size() && strs[i][j] == strs[0][j]) j++;\n        minLen = j;\n    }\n    return strs[0].substr(0, minLen);\n}",
+                    "complexity": "O(S * N)",
+                    "explanation": "This approach optimizes the comparison by directly finding the common prefix length."
+                }
+            },
+            "Python": {
+                "bruteforce": {
+                    "code": "def longest_common_prefix(strs):\n    if not strs:\n        return ''\n    for i in range(len(strs[0])):\n        for string in strs[1:]:\n            if i == len(string) or string[i] != strs[0][i]:\n                return strs[0][:i]\n    return strs[0]",
+                    "complexity": "O(S * N)",
+                    "explanation": "This approach uses nested loops to compare each character of all strings."
+                },
+                "best": {
+                    "code": "def longest_common_prefix(strs):\n    if not strs:\n        return ''\n    min_len = len(strs[0])\n    for string in strs[1:]:\n        i = 0\n        while i < min_len and i < len(string) and string[i] == strs[0][i]:\n            i += 1\n        min_len = i\n    return strs[0][:min_len]",
+                    "complexity": "O(S * N)",
+                    "explanation": "This approach finds the minimum length of common prefix by comparing all strings."
+                },
+                "optimized": {
+                    "code": "def longest_common_prefix(strs):\n    if not strs:\n        return ''\n    min_len = len(strs[0])\n    for string in strs[1:]:\n        i = 0\n        while i < min_len and i < len(string) and string[i] == strs[0][i]:\n            i += 1\n        min_len = i\n    return strs[0][:min_len]",
+                    "complexity": "O(S * N)",
+                    "explanation": "This approach optimizes by directly calculating the common prefix length."
+                }
+            }
+        },
+        "comparison": {
+        "bruteforce": {
+            "description": "The brute-force approach iterates through each character of the first string and compares it with the corresponding character of all other strings. If a mismatch is found, it returns the prefix up to that point.",
+            "timeComplexity": "O(S * N)",
+            "spaceComplexity": "O(1)",
+            "advantages": [
+                "Simple to implement and understand.",
+                "No extra space needed beyond the input and output."
+            ],
+            "disadvantages": [
+                "Inefficient for large datasets due to the nested loop structure.",
+                "Performance degrades as the number of strings and their lengths increase."
+            ],
+            "useCases": [
+                "Suitable for small input sizes or educational purposes to demonstrate basic algorithmic concepts.",
+                "Can be used when code simplicity is preferred over performance."
+            ]
+        },
+        "best": {
+            "description": "The best approach optimizes the brute-force method by finding the length of the common prefix more efficiently. It calculates the length of the common prefix by comparing each string and updates the minimum length as it progresses.",
+            "timeComplexity": "O(S * N)",
+            "spaceComplexity": "O(1)",
+            "advantages": [
+                "Efficiently finds the common prefix length with a linear pass through the strings.",
+                "Reduces unnecessary comparisons by focusing on the minimum prefix length."
+            ],
+            "disadvantages": [
+                "While more efficient than brute-force, still requires linear time complexity.",
+                "Handling edge cases like empty strings requires careful implementation."
+            ],
+            "useCases": [
+                "Ideal for larger datasets where performance improvements are needed over brute-force.",
+                "Commonly used in practice due to its balance between simplicity and efficiency."
+            ]
+        },
+        "optimized": {
+            "description": "The optimized approach refines the best approach by potentially using more advanced techniques or data structures. This may involve reducing space usage or improving performance further, while maintaining linear time complexity.",
+            "timeComplexity": "O(S * N)",
+            "spaceComplexity": "O(1) or O(N) (depending on the specific implementation)",
+            "advantages": [
+                "Maintains linear time complexity while potentially optimizing space usage or execution speed.",
+                "Further enhances the efficiency of the best approach."
+            ],
+            "disadvantages": [
+                "Can be more complex to implement compared to the best approach.",
+                "Optimizations may not always yield significant performance gains depending on the context."
+            ],
+            "useCases": [
+                "Suitable for scenarios where both time and space efficiency are critical.",
+                "Applicable in performance-sensitive applications where further optimization is required."
+            ]
+        }
+    }
+    },
+    {
+        "id": 3,
+        "question": "Merge Intervals",
+        "description": "Given a collection of intervals, merge all overlapping intervals.",
+        "solutions": {
+            "C": {
+                "bruteforce": {
+                    "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <stdbool.h>\n#include <limits.h>\n\ntypedef struct {\n    int start;\n    int end;\n} Interval;\n\nint cmp(const void* a, const void* b) {\n    return ((Interval*)a)->start - ((Interval*)b)->start;\n}\n\nInterval* merge(Interval* intervals, int intervalsSize, int* returnSize) {\n    qsort(intervals, intervalsSize, sizeof(Interval), cmp);\n    Interval* result = (Interval*)malloc(intervalsSize * sizeof(Interval));\n    int index = 0;\n    for (int i = 0; i < intervalsSize; i++) {\n        if (index == 0 || result[index - 1].end < intervals[i].start) {\n            result[index++] = intervals[i];\n        } else {\n            result[index - 1].end = result[index - 1].end > intervals[i].end ? result[index - 1].end : intervals[i].end;\n        }\n    }\n    *returnSize = index;\n    return result;\n}",
+                    "complexity": "O(n log n)",
+                    "explanation": "This approach sorts intervals and then merges overlapping intervals."
+                },
+                "best": {
+                    "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <stdbool.h>\n#include <limits.h>\n\ntypedef struct {\n    int start;\n    int end;\n} Interval;\n\nint cmp(const void* a, const void* b) {\n    return ((Interval*)a)->start - ((Interval*)b)->start;\n}\n\nInterval* merge(Interval* intervals, int intervalsSize, int* returnSize) {\n    qsort(intervals, intervalsSize, sizeof(Interval), cmp);\n    Interval* result = (Interval*)malloc(intervalsSize * sizeof(Interval));\n    int index = 0;\n    for (int i = 0; i < intervalsSize; i++) {\n        if (index == 0 || result[index - 1].end < intervals[i].start) {\n            result[index++] = intervals[i];\n        } else {\n            result[index - 1].end = result[index - 1].end > intervals[i].end ? result[index - 1].end : intervals[i].end;\n        }\n    }\n    *returnSize = index;\n    return result;\n}",
+                    "complexity": "O(n log n)",
+                    "explanation": "This approach sorts intervals and merges them effectively."
+                },
+                "optimized": {
+                    "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <stdbool.h>\n#include <limits.h>\n\ntypedef struct {\n    int start;\n    int end;\n} Interval;\n\nint cmp(const void* a, const void* b) {\n    return ((Interval*)a)->start - ((Interval*)b)->start;\n}\n\nInterval* merge(Interval* intervals, int intervalsSize, int* returnSize) {\n    qsort(intervals, intervalsSize, sizeof(Interval), cmp);\n    Interval* result = (Interval*)malloc(intervalsSize * sizeof(Interval));\n    int index = 0;\n    for (int i = 0; i < intervalsSize; i++) {\n        if (index == 0 || result[index - 1].end < intervals[i].start) {\n            result[index++] = intervals[i];\n        } else {\n            result[index - 1].end = result[index - 1].end > intervals[i].end ? result[index - 1].end : intervals[i].end;\n        }\n    }\n    *returnSize = index;\n    return result;\n}",
+                    "complexity": "O(n log n)",
+                    "explanation": "This approach uses sorting and merging to handle intervals optimally."
+                }
+            },
+            "CPP": {
+                "bruteforce": {
+                    "code": "#include <iostream>\n#include <vector>\n#include <algorithm>\nusing namespace std;\n\nvector<vector<int>> merge(vector<vector<int>>& intervals) {\n    if (intervals.empty()) return {};\n    sort(intervals.begin(), intervals.end());\n    vector<vector<int>> result;\n    result.push_back(intervals[0]);\n    for (int i = 1; i < intervals.size(); i++) {\n        if (result.back()[1] < intervals[i][0]) {\n            result.push_back(intervals[i]);\n        } else {\n            result.back()[1] = max(result.back()[1], intervals[i][1]);\n        }\n    }\n    return result;\n}",
+                    "complexity": "O(n log n)",
+                    "explanation": "This approach sorts the intervals and then merges them."
+                },
+                "best": {
+                    "code": "#include <iostream>\n#include <vector>\n#include <algorithm>\nusing namespace std;\n\nvector<vector<int>> merge(vector<vector<int>>& intervals) {\n    if (intervals.empty()) return {};\n    sort(intervals.begin(), intervals.end());\n    vector<vector<int>> result;\n    result.push_back(intervals[0]);\n    for (int i = 1; i < intervals.size(); i++) {\n        if (result.back()[1] < intervals[i][0]) {\n            result.push_back(intervals[i]);\n        } else {\n            result.back()[1] = max(result.back()[1], intervals[i][1]);\n        }\n    }\n    return result;\n}",
+                    "complexity": "O(n log n)",
+                    "explanation": "This approach sorts intervals and merges them efficiently."
+                },
+                "optimized": {
+                    "code": "#include <iostream>\n#include <vector>\n#include <algorithm>\nusing namespace std;\n\nvector<vector<int>> merge(vector<vector<int>>& intervals) {\n    if (intervals.empty()) return {};\n    sort(intervals.begin(), intervals.end());\n    vector<vector<int>> result;\n    result.push_back(intervals[0]);\n    for (int i = 1; i < intervals.size(); i++) {\n        if (result.back()[1] < intervals[i][0]) {\n            result.push_back(intervals[i]);\n        } else {\n            result.back()[1] = max(result.back()[1], intervals[i][1]);\n        }\n    }\n    return result;\n}",
+                    "complexity": "O(n log n)",
+                    "explanation": "This approach sorts and merges intervals efficiently."
+                }
+            },
+            "Python": {
+                "bruteforce": {
+                    "code": "def merge(intervals):\n    if not intervals:\n        return []\n    intervals.sort(key=lambda x: x[0])\n    merged = [intervals[0]]\n    for i in range(1, len(intervals)):\n        if merged[-1][1] < intervals[i][0]:\n            merged.append(intervals[i])\n        else:\n            merged[-1][1] = max(merged[-1][1], intervals[i][1])\n    return merged",
+                    "complexity": "O(n log n)",
+                    "explanation": "This approach sorts the intervals and merges them effectively."
+                },
+                "best": {
+                    "code": "def merge(intervals):\n    if not intervals:\n        return []\n    intervals.sort(key=lambda x: x[0])\n    merged = [intervals[0]]\n    for i in range(1, len(intervals)):\n        if merged[-1][1] < intervals[i][0]:\n            merged.append(intervals[i])\n        else:\n            merged[-1][1] = max(merged[-1][1], intervals[i][1])\n    return merged",
+                    "complexity": "O(n log n)",
+                    "explanation": "This approach uses sorting and merging to handle intervals optimally."
+                },
+                "optimized": {
+                    "code": "def merge(intervals):\n    if not intervals:\n        return []\n    intervals.sort(key=lambda x: x[0])\n    merged = [intervals[0]]\n    for i in range(1, len(intervals)):\n        if merged[-1][1] < intervals[i][0]:\n            merged.append(intervals[i])\n        else:\n            merged[-1][1] = max(merged[-1][1], intervals[i][1])\n    return merged",
+                    "complexity": "O(n log n)",
+                    "explanation": "This approach sorts and merges intervals efficiently."
+                }
+            }
+        },
+            "comparison": {
+                "bruteforce": {
+                    "description": "The brute-force approach sorts the intervals and then merges them by comparing each interval with the next one, and combining them if they overlap.",
+                    "timeComplexity": "O(n log n)",
+                    "spaceComplexity": "O(n)",
+                    "advantages": [
+                        "Simple to understand and implement.",
+                        "Straightforward logic using sorting and linear pass."
+                    ],
+                    "disadvantages": [
+                        "Inefficient for very large datasets due to sorting overhead.",
+                        "Requires additional space for storing results."
+                    ],
+                    "useCases": [
+                        "Suitable for small to moderate input sizes where simplicity is preferred.",
+                        "Educational purposes to demonstrate basic sorting and merging concepts."
+                    ]
+                },
+                "best": {
+                    "description": "The best approach uses sorting followed by a single linear scan to merge overlapping intervals, which is both simple and efficient.",
+                    "timeComplexity": "O(n log n)",
+                    "spaceComplexity": "O(n)",
+                    "advantages": [
+                        "Efficiently merges intervals after sorting with a linear pass.",
+                        "Provides a good balance between simplicity and performance."
+                    ],
+                    "disadvantages": [
+                        "Sorting step remains a bottleneck for large inputs.",
+                        "Space usage for result storage."
+                    ],
+                    "useCases": [
+                        "Appropriate for most practical scenarios where sorted data needs to be merged.",
+                        "Good for general usage where performance is acceptable and simplicity is valued."
+                    ]
+                },
+                "optimized": {
+                    "description": "The optimized approach is similar to the best approach, focusing on refining the sorting and merging process. It may use more efficient data structures or techniques to enhance performance.",
+                    "timeComplexity": "O(n log n)",
+                    "spaceComplexity": "O(n)",
+                    "advantages": [
+                        "Maintains linear merging after sorting, with potential optimizations for performance.",
+                        "Further enhancements may reduce constant factors or improve handling of edge cases."
+                    ],
+                    "disadvantages": [
+                        "Complexity may increase due to additional optimizations.",
+                        "Performance gains might be marginal depending on the specific context."
+                    ],
+                    "useCases": [
+                        "Ideal for performance-critical applications where optimizations are needed.",
+                        "Suitable for larger datasets where further improvements in execution speed or memory usage are beneficial."
+                    ]
+                }
+            }
+    },
+    {
+        "id": 4,
+        "question": "Longest Substring Without Repeating Characters",
+        "description": "Given a string, find the length of the longest substring without repeating characters.",
+        "solutions": {
+            "C": {
+                "bruteforce": {
+                    "code": "#include <stdio.h>\n#include <string.h>\n#include <stdbool.h>\n\nint lengthOfLongestSubstring(char* s) {\n    int maxLen = 0;\n    int len = strlen(s);\n    for (int i = 0; i < len; i++) {\n        bool visited[256] = {false};\n        int currentLen = 0;\n        for (int j = i; j < len; j++) {\n            if (visited[s[j]]) break;\n            visited[s[j]] = true;\n            currentLen++;\n        }\n        if (currentLen > maxLen) maxLen = currentLen;\n    }\n    return maxLen;\n}",
+                    "complexity": "O(n^2)",
+                    "explanation": "This approach uses a nested loop to check all substrings for uniqueness."
+                },
+                "best": {
+                    "code": "#include <stdio.h>\n#include <string.h>\n#include <stdbool.h>\n\nint lengthOfLongestSubstring(char* s) {\n    int maxLen = 0;\n    int start = 0;\n    int len = strlen(s);\n    int charIndex[256];\n    memset(charIndex, -1, sizeof(charIndex));\n    for (int i = 0; i < len; i++) {\n        if (charIndex[s[i]] >= start) {\n            start = charIndex[s[i]] + 1;\n        }\n        charIndex[s[i]] = i;\n        if (i - start + 1 > maxLen) maxLen = i - start + 1;\n    }\n    return maxLen;\n}",
+                    "complexity": "O(n)",
+                    "explanation": "This approach uses a sliding window and a hash map to track characters and their indices."
+                },
+                "optimized": {
+                    "code": "#include <stdio.h>\n#include <string.h>\n#include <stdbool.h>\n\nint lengthOfLongestSubstring(char* s) {\n    int maxLen = 0;\n    int start = 0;\n    int len = strlen(s);\n    int charIndex[256];\n    memset(charIndex, -1, sizeof(charIndex));\n    for (int i = 0; i < len; i++) {\n        if (charIndex[s[i]] >= start) {\n            start = charIndex[s[i]] + 1;\n        }\n        charIndex[s[i]] = i;\n        if (i - start + 1 > maxLen) maxLen = i - start + 1;\n    }\n    return maxLen;\n}",
+                    "complexity": "O(n)",
+                    "explanation": "This approach efficiently finds the longest substring by using a sliding window and a hash map."
+                }
+            },
+            "CPP": {
+                "bruteforce": {
+                    "code": "#include <iostream>\n#include <unordered_set>\n#include <string>\nusing namespace std;\n\nint lengthOfLongestSubstring(string s) {\n    int maxLen = 0;\n    for (int i = 0; i < s.length(); i++) {\n        unordered_set<char> seen;\n        int currentLen = 0;\n        for (int j = i; j < s.length(); j++) {\n            if (seen.count(s[j])) break;\n            seen.insert(s[j]);\n            currentLen++;\n        }\n        maxLen = max(maxLen, currentLen);\n    }\n    return maxLen;\n}",
+                    "complexity": "O(n^2)",
+                    "explanation": "This approach uses a nested loop and a set to find the longest substring."
+                },
+                "best": {
+                    "code": "#include <iostream>\n#include <unordered_map>\n#include <string>\nusing namespace std;\n\nint lengthOfLongestSubstring(string s) {\n    unordered_map<char, int> charIndex;\n    int start = 0;\n    int maxLen = 0;\n    for (int i = 0; i < s.length(); i++) {\n        if (charIndex.find(s[i]) != charIndex.end() && charIndex[s[i]] >= start) {\n            start = charIndex[s[i]] + 1;\n        }\n        charIndex[s[i]] = i;\n        maxLen = max(maxLen, i - start + 1);\n    }\n    return maxLen;\n}",
+                    "complexity": "O(n)",
+                    "explanation": "This approach uses a sliding window and a hash map to efficiently track characters."
+                },
+                "optimized": {
+                    "code": "#include <iostream>\n#include <unordered_map>\n#include <string>\nusing namespace std;\n\nint lengthOfLongestSubstring(string s) {\n    unordered_map<char, int> charIndex;\n    int start = 0;\n    int maxLen = 0;\n    for (int i = 0; i < s.length(); i++) {\n        if (charIndex.find(s[i]) != charIndex.end() && charIndex[s[i]] >= start) {\n            start = charIndex[s[i]] + 1;\n        }\n        charIndex[s[i]] = i;\n        maxLen = max(maxLen, i - start + 1);\n    }\n    return maxLen;\n}",
+                    "complexity": "O(n)",
+                    "explanation": "This approach efficiently finds the longest substring using a sliding window and a hash map."
+                }
+            },
+            "Python": {
+                "bruteforce": {
+                    "code": "def lengthOfLongestSubstring(s):\n    maxLen = 0\n    for i in range(len(s)):\n        seen = set()\n        currentLen = 0\n        for j in range(i, len(s)):\n            if s[j] in seen:\n                break\n            seen.add(s[j])\n            currentLen += 1\n        maxLen = max(maxLen, currentLen)\n    return maxLen",
+                    "complexity": "O(n^2)",
+                    "explanation": "This approach uses nested loops to check all substrings for uniqueness."
+                },
+                "best": {
+                    "code": "def lengthOfLongestSubstring(s):\n    charIndex = {}\n    start = 0\n    maxLen = 0\n    for i, char in enumerate(s):\n        if char in charIndex and charIndex[char] >= start:\n            start = charIndex[char] + 1\n        charIndex[char] = i\n        maxLen = max(maxLen, i - start + 1)\n    return maxLen",
+                    "complexity": "O(n)",
+                    "explanation": "This approach uses a sliding window and a hash map to track characters and their indices."
+                },
+                "optimized": {
+                    "code": "def lengthOfLongestSubstring(s):\n    charIndex = {}\n    start = 0\n    maxLen = 0\n    for i, char in enumerate(s):\n        if char in charIndex and charIndex[char] >= start:\n            start = charIndex[char] + 1\n        charIndex[char] = i\n        maxLen = max(maxLen, i - start + 1)\n    return maxLen",
+                    "complexity": "O(n)",
+                    "explanation": "This approach efficiently finds the longest substring by using a sliding window and a hash map."
+                }
+            }
+        },
+        "comparison": {
+        "bruteforce": {
+            "description": "The brute-force approach uses nested loops to check all possible substrings for uniqueness by tracking characters and their occurrence.",
+            "timeComplexity": "O(n^2)",
+            "spaceComplexity": "O(n)",
+            "advantages": [
+                "Simple to understand and implement.",
+                "No need for additional data structures beyond a set or array."
+            ],
+            "disadvantages": [
+                "Inefficient for large input sizes due to quadratic time complexity.",
+                "May not scale well with longer strings as it checks all possible substrings."
+            ],
+            "useCases": [
+                "Suitable for small to moderate input sizes where simplicity is preferred.",
+                "Useful for educational purposes to understand basic substring checking."
+            ]
+        },
+        "best": {
+            "description": "The best approach uses a sliding window technique combined with a hash map to track character indices. It ensures that each character is processed only once.",
+            "timeComplexity": "O(n)",
+            "spaceComplexity": "O(n)",
+            "advantages": [
+                "Efficient with linear time complexity.",
+                "Uses a sliding window and hash map to achieve optimal performance."
+            ],
+            "disadvantages": [
+                "Requires additional space for the hash map.",
+                "Slightly more complex to implement compared to brute-force."
+            ],
+            "useCases": [
+                "Ideal for practical scenarios where performance is critical.",
+                "Suitable for large input sizes where linear time complexity is needed."
+            ]
+        },
+        "optimized": {
+            "description": "The optimized approach is similar to the best approach, utilizing a sliding window and hash map. It may include further refinements for performance or edge cases.",
+            "timeComplexity": "O(n)",
+            "spaceComplexity": "O(n)",
+            "advantages": [
+                "Maintains linear time complexity with potential minor optimizations.",
+                "May include improvements for specific edge cases or performance fine-tuning."
+            ],
+            "disadvantages": [
+                "Complexity may increase due to additional optimizations.",
+                "Performance gains might be marginal depending on implementation details."
+            ],
+            "useCases": [
+                "Suitable for performance-critical applications where further optimizations are beneficial.",
+                "Ideal for very large input sizes where maximum efficiency is desired."
+            ]
+        }
+    }
+    },
+    {
+        "id": 5,
+        "question": "Median of Two Sorted Arrays",
+        "description": "Given two sorted arrays, find the median of the two sorted arrays.",
+        "solutions": {
+            "C": {
+                "bruteforce": {
+                    "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <limits.h>\n\nint* merge(int* nums1, int nums1Size, int* nums2, int nums2Size) {\n    int* merged = (int*)malloc((nums1Size + nums2Size) * sizeof(int));\n    int i = 0, j = 0, k = 0;\n    while (i < nums1Size && j < nums2Size) {\n        if (nums1[i] < nums2[j]) {\n            merged[k++] = nums1[i++];\n        } else {\n            merged[k++] = nums2[j++];\n        }\n    }\n    while (i < nums1Size) merged[k++] = nums1[i++];\n    while (j < nums2Size) merged[k++] = nums2[j++];\n    return merged;\n}\n\ndouble findMedianSortedArrays(int* nums1, int nums1Size, int* nums2, int nums2Size) {\n    int* merged = merge(nums1, nums1Size, nums2, nums2Size);\n    int totalSize = nums1Size + nums2Size;\n    double median;\n    if (totalSize % 2 == 0) {\n        median = (merged[totalSize / 2 - 1] + merged[totalSize / 2]) / 2.0;\n    } else {\n        median = merged[totalSize / 2];\n    }\n    free(merged);\n    return median;\n}",
+                    "complexity": "O(n)",
+                    "explanation": "This approach merges both arrays and then finds the median from the merged array."
+                },
+                "best": {
+                    "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <limits.h>\n\ndouble findMedianSortedArrays(int* nums1, int nums1Size, int* nums2, int nums2Size) {\n    int totalSize = nums1Size + nums2Size;\n    int half = totalSize / 2;\n    int i = 0, j = 0, current, prev;\n    while (i + j <= half) {\n        prev = current;\n        if (i < nums1Size && (j >= nums2Size || nums1[i] < nums2[j])) {\n            current = nums1[i++];\n        } else {\n            current = nums2[j++];\n        }\n    }\n    if (totalSize % 2 == 0) {\n        return (prev + current) / 2.0;\n    } else {\n        return current;\n    }\n}",
+                    "complexity": "O(n)",
+                    "explanation": "This approach finds the median in one pass through both arrays."
+                },
+                "optimized": {
+                    "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <limits.h>\n\ndouble findMedianSortedArrays(int* nums1, int nums1Size, int* nums2, int nums2Size) {\n    if (nums1Size > nums2Size) {\n        int* temp = nums1;\n        nums1 = nums2;\n        nums2 = temp;\n        int tempSize = nums1Size;\n        nums1Size = nums2Size;\n        nums2Size = tempSize;\n    }\n    int imin = 0, imax = nums1Size, halfLen = (nums1Size + nums2Size + 1) / 2;\n    while (imin <= imax) {\n        int i = (imin + imax) / 2;\n        int j = halfLen - i;\n        if (i < nums1Size && nums2[j - 1] > nums1[i]) {\n            imin = i + 1;\n        } else if (i > 0 && nums1[i - 1] > nums2[j]) {\n            imax = i - 1;\n        } else {\n            int maxLeft = 0;\n            if (i == 0) maxLeft = nums2[j - 1];\n            else if (j == 0) maxLeft = nums1[i - 1];\n            else maxLeft = fmax(nums1[i - 1], nums2[j - 1]);\n            if ((nums1Size + nums2Size) % 2 == 1) return maxLeft;\n            int minRight = 0;\n            if (i == nums1Size) minRight = nums2[j];\n            else if (j == nums2Size) minRight = nums1[i];\n            else minRight = fmin(nums1[i], nums2[j]);\n            return (maxLeft + minRight) / 2.0;\n        }\n    }\n    return 0.0;\n}",
+                    "complexity": "O(log(min(n, m)))",
+                    "explanation": "This approach uses binary search to efficiently find the median in logarithmic time."
+                }
+            },
+            "CPP": {
+                "bruteforce": {
+                    "code": "#include <iostream>\n#include <vector>\n#include <algorithm>\nusing namespace std;\n\ndouble findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {\n    vector<int> merged;\n    merged.reserve(nums1.size() + nums2.size());\n    merged.insert(merged.end(), nums1.begin(), nums1.end());\n    merged.insert(merged.end(), nums2.begin(), nums2.end());\n    sort(merged.begin(), merged.end());\n    int n = merged.size();\n    if (n % 2 == 0) {\n        return (merged[n / 2 - 1] + merged[n / 2]) / 2.0;\n    } else {\n        return merged[n / 2];\n    }\n}",
+                    "complexity": "O(n log n)",
+                    "explanation": "This approach merges both arrays, sorts the merged array, and then finds the median."
+                },
+                "best": {
+                    "code": "#include <iostream>\n#include <vector>\n#include <algorithm>\nusing namespace std;\n\ndouble findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {\n    int m = nums1.size(), n = nums2.size();\n    int imin = 0, imax = m, halfLen = (m + n + 1) / 2;\n    while (imin <= imax) {\n        int i = (imin + imax) / 2;\n        int j = halfLen - i;\n        if (i < m && nums2[j - 1] > nums1[i]) {\n            imin = i + 1;\n        } else if (i > 0 && nums1[i - 1] > nums2[j]) {\n            imax = i - 1;\n        } else {\n            int maxLeft = 0;\n            if (i == 0) maxLeft = nums2[j - 1];\n            else if (j == 0) maxLeft = nums1[i - 1];\n            else maxLeft = max(nums1[i - 1], nums2[j - 1]);\n            if ((m + n) % 2 == 1) return maxLeft;\n            int minRight = 0;\n            if (i == m) minRight = nums2[j];\n            else if (j == n) minRight = nums1[i];\n            else minRight = min(nums1[i], nums2[j]);\n            return (maxLeft + minRight) / 2.0;\n        }\n    }\n    return 0.0;\n}",
+                    "complexity": "O(log(min(m, n)))",
+                    "explanation": "This approach uses binary search to efficiently find the median."
+                },
+                "optimized": {
+                    "code": "#include <iostream>\n#include <vector>\n#include <algorithm>\nusing namespace std;\n\ndouble findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {\n    int m = nums1.size(), n = nums2.size();\n    int imin = 0, imax = m, halfLen = (m + n + 1) / 2;\n    while (imin <= imax) {\n        int i = (imin + imax) / 2;\n        int j = halfLen - i;\n        if (i < m && nums2[j - 1] > nums1[i]) {\n            imin = i + 1;\n        } else if (i > 0 && nums1[i - 1] > nums2[j]) {\n            imax = i - 1;\n        } else {\n            int maxLeft = 0;\n            if (i == 0) maxLeft = nums2[j - 1];\n            else if (j == 0) maxLeft = nums1[i - 1];\n            else maxLeft = max(nums1[i - 1], nums2[j - 1]);\n            if ((m + n) % 2 == 1) return maxLeft;\n            int minRight = 0;\n            if (i == m) minRight = nums2[j];\n            else if (j == n) minRight = nums1[i];\n            else minRight = min(nums1[i], nums2[j]);\n            return (maxLeft + minRight) / 2.0;\n        }\n    }\n    return 0.0;\n}",
+                    "complexity": "O(log(min(m, n)))",
+                    "explanation": "This approach uses binary search to efficiently find the median."
+                }
+            },
+            "Python": {
+                "bruteforce": {
+                    "code": "def findMedianSortedArrays(nums1, nums2):\n    merged = sorted(nums1 + nums2)\n    n = len(merged)\n    if n % 2 == 0:\n        return (merged[n // 2 - 1] + merged[n // 2]) / 2.0\n    else:\n        return merged[n // 2]",
+                    "complexity": "O(n log n)",
+                    "explanation": "This approach merges both arrays, sorts the merged array, and then finds the median."
+                },
+                "best": {
+                    "code": "def findMedianSortedArrays(nums1, nums2):\n    m, n = len(nums1), len(nums2)\n    imin, imax, halfLen = 0, m, (m + n + 1) // 2\n    while imin <= imax:\n        i = (imin + imax) // 2\n        j = halfLen - i\n        if i < m and nums2[j - 1] > nums1[i]:\n            imin = i + 1\n        elif i > 0 and nums1[i - 1] > nums2[j]:\n            imax = i - 1\n        else:\n            maxLeft = 0\n            if i == 0:\n                maxLeft = nums2[j - 1]\n            elif j == 0:\n                maxLeft = nums1[i - 1]\n            else:\n                maxLeft = max(nums1[i - 1], nums2[j - 1])\n            if (m + n) % 2 == 1:\n                return maxLeft\n            minRight = 0\n            if i == m:\n                minRight = nums2[j]\n            elif j == n:\n                minRight = nums1[i]\n            else:\n                minRight = min(nums1[i], nums2[j])\n            return (maxLeft + minRight) / 2.0",
+                    "complexity": "O(log(min(m, n)))",
+                    "explanation": "This approach uses binary search to efficiently find the median."
+                },
+                "optimized": {
+                    "code": "def findMedianSortedArrays(nums1, nums2):\n    if len(nums1) > len(nums2):\n        nums1, nums2 = nums2, nums1\n    m, n = len(nums1), len(nums2)\n    imin, imax, halfLen = 0, m, (m + n + 1) // 2\n    while imin <= imax:\n        i = (imin + imax) // 2\n        j = halfLen - i\n        if i < m and nums2[j - 1] > nums1[i]:\n            imin = i + 1\n        elif i > 0 and nums1[i - 1] > nums2[j]:\n            imax = i - 1\n        else:\n            maxLeft = 0\n            if i == 0:\n                maxLeft = nums2[j - 1]\n            elif j == 0:\n                maxLeft = nums1[i - 1]\n            else:\n                maxLeft = max(nums1[i - 1], nums2[j - 1])\n            if (m + n) % 2 == 1:\n                return maxLeft\n            minRight = 0\n            if i == m:\n                minRight = nums2[j]\n            elif j == n:\n                minRight = nums1[i]\n            else:\n                minRight = min(nums1[i], nums2[j])\n            return (maxLeft + minRight) / 2.0",
+                    "complexity": "O(log(min(m, n)))",
+                    "explanation": "This approach uses binary search to efficiently find the median."
+                }
+            }
+        },
+        "comparison": {
+    "bruteforce": {
+        "description": "The brute-force approach merges both sorted arrays into a single array and then finds the median of the merged array.",
+        "timeComplexity": "O(n log n)",
+        "spaceComplexity": "O(n)",
+        "advantages": [
+            "Simple and straightforward to implement.",
+            "Direct approach that uses basic operations like merging and sorting."
+        ],
+        "disadvantages": [
+            "Less efficient for large arrays due to sorting, which can be slow for large input sizes.",
+            "Requires extra space for storing the merged array."
+        ],
+        "useCases": [
+            "Suitable for smaller arrays or when simplicity is preferred.",
+            "Useful for scenarios where an exact median is needed and performance is not critical."
+        ]
+    },
+    "best": {
+        "description": "The best approach uses a single pass through both arrays to find the median by keeping track of the current and previous values at the midpoint.",
+        "timeComplexity": "O(n)",
+        "spaceComplexity": "O(1)",
+        "advantages": [
+            "More efficient than the brute-force method for larger arrays.",
+            "No extra space is needed beyond a few variables."
+        ],
+        "disadvantages": [
+            "Still linear in time complexity, which may not be as optimal for very large inputs compared to binary search.",
+            "Requires careful implementation to handle different cases correctly."
+        ],
+        "useCases": [
+            "Ideal for scenarios where a balance between simplicity and performance is needed.",
+            "Useful for moderate to large input sizes where merging is too slow."
+        ]
+    },
+    "optimized": {
+        "description": "The optimized approach uses binary search to partition the arrays and find the median efficiently with logarithmic time complexity.",
+        "timeComplexity": "O(log(min(m, n)))",
+        "spaceComplexity": "O(1)",
+        "advantages": [
+            "Highly efficient with logarithmic time complexity, making it suitable for very large arrays.",
+            "Minimal space usage, only requiring a few variables for the binary search."
+        ],
+        "disadvantages": [
+            "More complex to implement compared to brute-force and best approaches.",
+            "Requires handling edge cases and careful calculation to ensure correctness."
+        ],
+        "useCases": [
+            "Best for very large arrays where performance is critical.",
+            "Suitable for scenarios where minimizing time complexity is a priority and additional complexity can be managed."
+        ]
+    }
+}
+
+    }        
+]

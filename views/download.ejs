@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downloads</title>
+    <link rel="shortcut icon" href="/images/logo1.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/download.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/enhancement.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1 class="website-name">Techguide</h1>
+            </div>
+            <nav class="nav-links header-links">
+                <ul>
+                    <li><a href="/learning" class="nav-link alert-login">Learning</a></li>
+                    <li><a href="/quizzes" class="nav-link alert-login">Quizzes</a></li>
+                    <li><a href="/coding-algorithms" class="nav-link alert-login">Coding Algorithms</a></li>
+                    <li><a href="/login" class="nav-link">Login</a></li>
+                    <li><a href="/signup" class="nav-link">Sign Up</a></li>
+                </ul>
+            </nav>
+            <div class="user-menu">
+                <div class="user-icon" id="user-icon">
+                    <img src="/images/<%= profileIcon %>" alt="User Profile" class="user-profile-icon">
+                    <span class="username"><%= username %></span>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <a href="/profile">Profile</a>
+                    <a href="/downloads">My Downloads</a>
+                    <a href="/attempts">Track Scores</a>
+                    <a href="/logout" id="logout-link">Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main class="downloads-container">
+        <h1>Your Downloads</h1>
+        <table id="downloads-table">
+            <thead>
+                <tr>
+                    <th>Resource</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% downloads.forEach(download => { %>
+                    <tr data-id="<%= download.id %>">
+                        <td><%= download.resource %></td>
+                        <td><%= new Date(download.date).toLocaleString() %></td>
+                        <td><button class="delete-btn" data-id="<%= download.id %>">🗑️</button></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+        <div class="clear-all-container">
+        <button id="clear-all">Clear All</button>
+    </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Techguide. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="/contact">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+    <button id="back-to-top">↑</button>
+    <script src="/js/home.js"></script> <!-- Link to your JavaScript file -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const deleteButtons = document.querySelectorAll('.delete-btn');
+            const clearAllButton = document.getElementById('clear-all');
+        
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const row = this.closest('tr');
+                    const id = this.getAttribute('data-id');
+        
+                    fetch(`/delete/${id}`, { 
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            row.classList.add('fade-out');
+                            setTimeout(() => row.remove(), 500);
+                        } else {
+                            alert('Failed to delete row');
+                        }
+                    })
+                    .catch(err => console.error('Error:', err));
+                });
+            });
+        
+            clearAllButton.addEventListener('click', () => {
+                fetch('/clear-all', { 
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        const tableBody = document.querySelector('#downloads-table tbody');
+                        tableBody.classList.add('fade-out');
+                        setTimeout(() => tableBody.innerHTML = '', 500);
+                    } else {
+                        alert('Failed to clear all rows');
+                    }
+                })
+                .catch(err => console.error('Error:', err));
+            });
+        });
+        
+        
+                
+    </script>
+</body>
+</html>

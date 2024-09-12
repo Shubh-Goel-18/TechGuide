@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/images/logo1.png" type="image/x-icon">
+  <link rel="stylesheet" href="/css/styles.css">
+  <title>Sign Up - Techguide</title>
+  <script>
+    function validateForm() {
+      const username = document.forms["signupForm"]["username"].value;
+      const email = document.forms["signupForm"]["email"].value;
+      const password = document.forms["signupForm"]["password"].value;
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple email regex pattern
+
+      if (username.length < 3) {
+        alert("Username must be at least 3 characters long.");
+        return false;
+      }
+
+      if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address.");
+        return false;
+      }
+
+      if (password.length < 3) {
+        alert("Password must be at least 8 characters long.");
+        return false;
+      }
+
+      return true; // If all validations pass, allow form submission
+    }
+  </script>
+</head>
+
+<body>
+  <% if (typeof message !== 'undefined') { %>
+    <script>
+      alert('<%= message %>');
+    </script>
+  <% } %>
+      <header class="site-header">
+        <div class="header-content">
+          <img src="/images/logo1.png" alt="Techguide Logo" class="site-logo">
+          <h1 class="site-name">Techguide</h1>
+        </div>
+      </header>
+      <div class="container">
+        <h2>Sign Up</h2>
+        <form name="signupForm" action="/signup" method="POST" onsubmit="return validateForm()">
+          <input type="text" name="username" placeholder="Username" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <input type="password" name="password" placeholder="Password" required>
+          <button type="submit">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="/login">Login</a></p>
+      </div>
+</body>
+
+</html>

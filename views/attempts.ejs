@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Scores</title>
+    <link rel="shortcut icon" href="/images/logo1.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/enhancement.css">
+    <link rel="stylesheet" href="/css/attempts.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1 class="website-name">Techguide</h1>
+            </div>
+            <nav class="nav-links header-links">
+                <ul>
+                    <li><a href="/learning" class="nav-link alert-login">Learning</a></li>
+                    <li><a href="/" class="nav-link alert-login">Home</a></li>
+                    <li><a href="/coding-algorithms" class="nav-link alert-login">Coding Algorithms</a></li>
+                    <li><a href="/login" class="nav-link">Login</a></li>
+                    <li><a href="/signup" class="nav-link">Sign Up</a></li>
+                </ul>
+            </nav>
+            <div class="user-menu">
+                <div class="user-icon" id="user-icon">
+                    <img src="/images/<%= profileIcon %>" alt="User Profile" class="user-profile-icon">
+                    <span class="username"><%= username %></span>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <a href="/profile">Profile</a>
+                    <a href="/downloads">My Downloads</a>
+                    <a href="/attempts">Track Scores</a>
+                    <a href="/logout" id="logout-link">Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="attempts-container">
+        <h1>Track Your Quiz Scores</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Quiz Language</th>
+                    <th>Score</th>
+                    <th>Total Questions</th>
+                    <th>Attempt Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% attempts.forEach(attempt => { %>
+                    <tr>
+                        <td><%= attempt.quiz_language %></td>
+                        <td><%= attempt.score %>/5</td>
+                        <td><%= attempt.total_questions %></td>
+                        <td><%= new Date(attempt.attempt_date).toLocaleDateString() %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+        <div class="centered-button">
+            <a href="/quizzes" class="play-quizzes-button">Play Quizzes</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Techguide. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="/contact">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/home.js"></script>
+</body>
+</html>
