@@ -1,8 +1,8 @@
 /* Base Styles */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #1c1f2b;
-  color: #d1d5db;
+  background-color:white; /* Darker background as in learning.css */
+  color: #eaeaea; /* Light text to contrast with the dark background */
   margin: 0;
   padding: 0;
   transition: background-color 0.3s ease;
@@ -11,9 +11,9 @@ body {
 /* Main Container */
 .container1 {
   padding: 40px;
-  background: linear-gradient(to bottom right, #2c2f3b, #1f2230);
+  background: white; /* Similar color scheme to learning.css */
   border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   margin: 40px auto;
   max-width: 900px;
   text-align: center;
@@ -31,7 +31,7 @@ body {
 .container1 h6 {
   font-size: 2.8rem;
   color: #ffffff;
-  background: linear-gradient(to right, #ff8c00, #e52e71);
+  background: linear-gradient(135deg, #1c80eb, #007bff); /* Color scheme inspired by learning.css */
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -53,7 +53,7 @@ body {
   bottom: -5px;
   width: 0;
   height: 3px;
-  background: linear-gradient(to right, #ff8c00, #e52e71);
+  background: linear-gradient(135deg, #1c80eb, #007bff); /* Accent color from learning.css */
   transition: width 0.4s ease;
 }
 
@@ -68,17 +68,15 @@ body {
 
 .container1 p {
   font-size: 1.2rem;
-  background: linear-gradient(90deg, #ffafbd, #ffc3a0);
-  color: #1c1f2b;
+  background: linear-gradient(135deg, #1c80eb, #007bff); /* Gradient background matching learning.css */
+  color: #ffffff;
   padding: 15px 20px;
   border-radius: 12px;
   display: inline-block;
   margin-bottom: 20px;
   transition: transform 0.4s ease, background 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-
-
 
 /* Language Selection Dropdown */
 #languageSelect {
@@ -87,24 +85,25 @@ body {
   font-size: 1.1rem;
   border: none;
   border-radius: 12px;
-  background: linear-gradient(to right, #ffafbd, #ffc3a0);
-  color: #abb9f0;
+  background: #1c80eb; /* Dark teal color from learning.css */
+  color: #eeeeee;
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
   outline: none;
   margin: 20px auto;
   display: block;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  appearance: none; /* Removes default dropdown arrow */
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%232c2f3b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23eeeeee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
   background-repeat: no-repeat;
   background-position: right 10px center;
   background-size: 16px;
 }
 
 #languageSelect:hover {
-  background: linear-gradient(to right, #dfdfdf, #ffffff);
+  background: white; /* Lighter teal from learning.css */
+  color:#007bff;
   transform: scale(1.10);
 }
 
@@ -114,30 +113,32 @@ body {
   justify-content: space-around;
   margin-top: 30px;
   padding: 12px;
-  background: #292d3e;
+  background: white; /* Dark gray background */
   border-radius: 15px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
 
 .tab {
   padding: 15px 30px;
-  background: linear-gradient(to right, #ff8c00, #e52e71);
+  background: #1c80eb; /* Gradient from learning.css */
   border-radius: 15px;
   cursor: pointer;
   color: #ffffff;
   font-weight: bold;
   transition: all 0.3s ease;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 10px rgba(250, 249, 249, 0.2);
 }
 
 .tab.active {
-  background: linear-gradient(to right, #e52e71, #ff8c00);
+  background: white;
+  color: #007bff; /* Active state with a lighter teal */
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(229, 46, 113, 0.3);
+  box-shadow: 0 8px 20px rgba(199, 203, 203, 0.3);
 }
 
 .tab:hover {
-  background: linear-gradient(to right, #ff8c00, #e52e71);
+  background: #1c80eb;
+  color: white;
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
@@ -146,9 +147,9 @@ body {
 .solution-content {
   margin-top: 30px;
   padding: 25px;
-  background: linear-gradient(to right, #292d3e, #1f2230);
+  background: white; /* Dark background with subtle color change */
   border-radius: 15px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   color: #e0e0e0;
   animation: slide-down 0.5s ease-in-out;
   text-align: left;
@@ -162,7 +163,7 @@ body {
   background: rgba(255, 255, 255, 0.05);
   color: #e0e0e0;
   transition: all 0.5s ease-in-out;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid white;
   text-align: left;
 }
 
@@ -174,30 +175,29 @@ body {
 .solution-detail h2 {
   font-size: 1.8rem;
   margin-bottom: 15px;
-  color: #ffffff;
-  background: linear-gradient(to right, #ff8c00, #e52e71);
+  background:#007bff;
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
 }
 
 .solution-detail pre {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
   padding: 20px;
   border-radius: 12px;
   overflow-x: auto;
-  color: #f8f8f8;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  color: #eeeeee;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* Complexity and Explanation Section */
 .complexity-explanation {
   margin-top: 40px;
   padding: 25px;
-  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  background: white;
   border-radius: 15px;
-  box-shadow: 0 8px 30px rgba(255, 126, 95, 0.2);
-  color: #1c1f2b;
+  box-shadow: 0 8px 30px rgba(17, 153, 158, 0.3);
+  color: #ffffff;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -209,40 +209,47 @@ body {
 button {
   padding: 15px 30px;
   font-size: 1.2rem;
-  background: linear-gradient(to right, #43cea2, #185a9d);
+  background: white;
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  color: #fff;
+  color:#007bff;
   font-weight: bold;
   transition: all 0.3s ease-in-out;
-  margin: 30px auto; /* Add margin below the button */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  margin: 30px auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 button:hover {
-  background: linear-gradient(to right, #185a9d, #43cea2);
+  background:#007bff;
+  color: white;
   transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(24, 90, 157, 0.2);
+  box-shadow: 0 4px 12px rgba(17, 153, 158, 0.2);
 }
 
 .comparison-section {
-  max-height: 0; /* Start with height 0 */
+  max-height: 0;
   overflow: hidden;
   transition: max-content 1s ease-in-out, opacity 0.6s ease;
   padding: 25px;
-  background: linear-gradient(to right, #2193b0, #6dd5ed);
+  background: white;
   border-radius: 15px;
   color: #ffffff;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-  opacity: 0; /* Start with opacity 0 */
+  opacity: 0;
   margin-top: 30px;
 }
 
-.comparison-section.active {
-  max-height: 1000px; /* Increase max-height for larger content */
-  opacity: 1; /* Change opacity to 1 */
+.comparison-detail ul{
+  color:black
 }
+
+.comparison-section.active {
+  max-height: 1000px;
+  opacity: 1;
+  transition: max-height 1s ease-in-out, opacity 0.6s ease;
+}
+
 
 /* Responsive Styles */
 @media (max-width: 1200px) {

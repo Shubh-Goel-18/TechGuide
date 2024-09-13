@@ -24,6 +24,26 @@ header {
     justify-content: space-between;
     align-items: center;
 }
+/* Logo Image Styles */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    width: 45px; /* Adjust the size as needed */
+    height: 45px; /* Adjust the size as needed */
+    margin-right: 20px; /* Adds space between image and text */
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.logo-image:hover {
+    transform: scale(1.1); /* Scales the logo on hover */
+}
+
+/* Rest of the header CSS remains unchanged */
 
 /* Logo Styles */
 .logo h1 {

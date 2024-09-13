@@ -78,6 +78,7 @@
     <header>
         <div class="container">
             <div class="logo">
+              <img src="/images/logo1.png" alt="Logo" class="logo-image">
                 <h1 class="website-name">Techguide</h1>
             </div>
             <nav class="nav-links header-links">
@@ -110,7 +111,6 @@
     <!-- Dropdown to select language -->
     <label for="languageSelect">Select Language:</label>
     <select id="languageSelect" onchange="showSolutions(this.value)">
-      <option value="">--Select--</option>
       <% Object.keys(algorithm.solutions).forEach(function(language) { %>
         <option value="<%= language %>"><%= language %></option>
       <% }); %>
