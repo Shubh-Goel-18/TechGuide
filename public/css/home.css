@@ -33,7 +33,7 @@ header {
 .logo-image {
     width: 45px; /* Adjust the size as needed */
     height: 45px; /* Adjust the size as needed */
-    margin-right: 20px; /* Adds space between image and text */
+    margin-right: 15px; /* Adds space between image and text */
     transition: transform 0.3s ease;
     cursor: pointer;
     border-radius: 50%;

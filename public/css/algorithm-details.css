@@ -7,6 +7,10 @@ body {
   padding: 0;
   transition: background-color 0.3s ease;
 }
+label{
+  color: black;
+  font-weight: 600;
+}
 
 /* Main Container */
 .container1 {
