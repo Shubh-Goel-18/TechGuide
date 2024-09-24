@@ -1,24 +1,24 @@
 const express = require('express');
 const session = require('express-session');
-const passport = require('./config/passport-config'); // Import passport configuration
-const authRoutes = require('./routes/auth'); // Import authentication routes
-const indexRoutes = require('./routes/index'); // Import index routes
+const passport = require('./config/passport-config'); 
+const authRoutes = require('./routes/auth'); 
+const indexRoutes = require('./routes/index'); 
 const profileRoutes = require('./routes/profile');
 
-const bodyParser = require('body-parser'); // For parsing request bodies
+const bodyParser = require('body-parser'); 
 
 const app = express();
 
 // Middleware setup
-app.use(bodyParser.urlencoded({ extended: false })); // Parse URL-encoded bodies
-app.use(bodyParser.json()); // Parse JSON bodies
+app.use(bodyParser.urlencoded({ extended: false })); 
+app.use(bodyParser.json()); 
 
 // Session management
 app.use(session({
-  secret: 'your-secret-key', // Change this to a secure key
+  secret: 'your-secret-key', 
   resave: false,
   saveUninitialized: false,
-  cookie: { secure: false } // Set `secure: true` if using HTTPS
+  cookie: { secure: false } 
 }));
 
 // Initialize Passport
@@ -34,7 +34,7 @@ app.use(express.static('public'));
 
 // Use routes
 app.use('/', authRoutes);
-app.use('/', indexRoutes); // Add index routes
+app.use('/', indexRoutes);
 app.use('/', profileRoutes);
 
 

@@ -73,7 +73,7 @@ form input {
     margin-right: 0.5rem;
     border: 1px solid #ddd;
     border-radius: 6px;
-    width: calc(100% - 140px); /* Adjust width to accommodate the button */
+    width: calc(100% - 140px); 
     box-sizing: border-box;
     transition: border 0.3s ease, box-shadow 0.3s ease;
 }

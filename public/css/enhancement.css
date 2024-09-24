@@ -2,12 +2,12 @@
 
 /* Background Gradient */
 header {
-    background: linear-gradient(to right, #1e3c72, #2a5298); /* Adjust the colors as needed */
+    background: linear-gradient(to right, #1e3c72, #2a5298); 
 }
 
 /* Shadow Effect on Hover */
 nav a:hover {
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow effect */
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
 }
 
 
@@ -28,7 +28,7 @@ footer a::after {
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #4CAF50; /* Adjust color as needed */
+    background-color: #4CAF50;
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
 }
@@ -41,16 +41,15 @@ footer a:hover::after {
 
 
 
-/* General Improvements */
 
 /* Responsive Design with Media Queries */
 @media (max-width: 768px) {
     header, footer {
-        padding: 10px 20px; /* Adjust padding for smaller screens */
+        padding: 10px 20px;
     }
 
     .main-section, .news-section, .featured-section {
-        margin: 20px 0; /* Adjust margins for smaller screens */
+        margin: 20px 0;
     }
 }
 
@@ -58,15 +57,15 @@ footer a:hover::after {
     position: fixed;
     bottom: 32px;
     right: 20px;
-    background: linear-gradient(135deg, #4a90e2, #1c3b8b); /* Gradient blue for more effect */
+    background: linear-gradient(135deg, #4a90e2, #1c3b8b);
     color: #fff;
-    padding: 12px 18px; /* Adjusted padding for a balanced look */
-    border-radius: 50%; /* Full circle */
+    padding: 12px 18px;
+    border-radius: 50%;
     cursor: pointer;
-    display: none; /* Initially hidden */
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Added transform transition */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Added shadow for depth */
-    z-index: 1000; /* Ensures it stays above other elements */
+    display: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
 }
 
 #back-to-top.show {
@@ -76,34 +75,34 @@ footer a:hover::after {
 
 #back-to-top:hover {
     opacity: 1;
-    transform: scale(1.1); /* Slight zoom effect on hover */
-    background: linear-gradient(135deg, #3a78d2, #17326d); /* Darker gradient on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
+    transform: scale(1.1); 
+    background: linear-gradient(135deg, #3a78d2, #17326d); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); 
 }
 
 
 
 @media (max-width: 768px) {
     #back-to-top {
-        padding: 10px 15px; /* Reduce padding */
-        bottom: 30px; /* Adjust positioning */
+        padding: 10px 15px; 
+        bottom: 30px; 
         right: 15px;
     }
 
     #back-to-top::before {
-        font-size: 18px; /* Adjust icon size */
+        font-size: 18px; 
     }
 }
 
 @media (max-width: 480px) {
     #back-to-top {
-        padding: 8px 12px; /* Further reduce padding */
-        bottom: 20px; /* Further adjust positioning */
+        padding: 8px 12px; 
+        bottom: 20px;
         right: 10px;
     }
 
     #back-to-top::before {
-        font-size: 16px; /* Further reduce icon size */
+        font-size: 16px; 
     }
 }
 

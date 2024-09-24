@@ -1,5 +1,3 @@
-// public/js/scripts.js
-
 // Example: Fade in effect on page load
 document.addEventListener('DOMContentLoaded', () => {
     document.body.style.opacity = '0';

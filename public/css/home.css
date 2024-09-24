@@ -31,19 +31,19 @@ header {
 }
 
 .logo-image {
-    width: 45px; /* Adjust the size as needed */
-    height: 45px; /* Adjust the size as needed */
-    margin-right: 15px; /* Adds space between image and text */
+    width: 45px; 
+    height: 45px; 
+    margin-right: 15px; 
     transition: transform 0.3s ease;
     cursor: pointer;
     border-radius: 50%;
 }
 
 .logo-image:hover {
-    transform: scale(1.1); /* Scales the logo on hover */
+    transform: scale(1.1); 
 }
 
-/* Rest of the header CSS remains unchanged */
+
 
 /* Logo Styles */
 .logo h1 {
@@ -68,7 +68,7 @@ nav {
 .nav-links {
     display: flex;
     align-items: center;
-    justify-content: center; /* Aligns nav links to the center of the header */
+    justify-content: center; 
     flex-grow: 1;
 }
 
@@ -263,12 +263,12 @@ main {
 /* Wrapper for the marquee text */
 .marquee-wrapper {
     position: relative;
-    overflow: hidden; /* Hide overflow to keep text within bounds */
-    background-color: #f7f9fc; /* Background color for the container */
-    border-radius: 8px; /* Optional: Rounded corners for the container */
-    padding: 10px; /* Optional: Padding around the text */
-    height: 60px; /* Ensure sufficient height for the marquee effect */
-    line-height: 60px; /* Align text vertically in the middle */
+    overflow: hidden; 
+    background-color: #f7f9fc; 
+    border-radius: 8px; 
+    padding: 10px;
+    height: 60px; 
+    line-height: 60px; 
 }
 
 /* Marquee Text */
@@ -462,27 +462,27 @@ footer .footer-links {
 footer .footer-links a {
     color: #f4c10b;
     text-decoration: none;
-    position: relative; /* Position relative for the pseudo-element */
+    position: relative;
     transition: color 0.3s ease-in-out;
 }
 
 footer .footer-links a::after {
-    content: ''; /* Empty content for the pseudo-element */
+    content: '';
     display: block;
     position: absolute;
     left: 0;
-    bottom: 0; /* Align at the bottom of the text */
+    bottom: 0;
     width: 100%;
-    height: 3px; /* Height of the underline */
-    background-color: #e3a908; /* Color of the underline */
-    transform: scaleX(0); /* Initially hide the underline */
-    transform-origin: bottom right; /* Animation origin point */
-    transition: transform 0.3s ease-in-out; /* Smooth transition for the underline */
+    height: 3px;
+    background-color: #e3a908;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-in-out;
 }
 
 footer .footer-links a:hover::after {
-    transform: scaleX(1); /* Show the underline on hover */
-    transform-origin: bottom left; /* Animation origin point on hover */
+    transform: scaleX(1); 
+    transform-origin: bottom left; 
 }
 
 
@@ -505,9 +505,7 @@ footer .footer-links a:hover::after {
     transition: transform 0.3s ease-in-out;
 }
 
-/* .intro:hover, .news-articles article:hover, .featured-sections .section:hover {
-    transform: translateY(-5px);
-} */
+
 
 /* public/css/home.css */
 .fade-in {
@@ -536,9 +534,9 @@ footer .footer-links a:hover::after {
 .intro h2, .latest-news h2, .featured-sections h2 {
     font-size: 2.5rem;
     font-weight: 600;
-    background: linear-gradient(90deg, #f9d423, #ff4e50); /* Yellow to red gradient */
+    background: linear-gradient(90deg, #f9d423, #ff4e50); 
    background-clip: text;
-    -webkit-background-clip: text; /* For WebKit browsers */
+    -webkit-background-clip: text; 
     color: transparent;
     margin: 0;
     padding: 0.5rem 1rem;
@@ -550,17 +548,17 @@ footer .footer-links a:hover::after {
 
 /* Hover effect for headings */
 .intro h2:hover, .latest-news h2:hover, .featured-sections h2:hover {
-    background: linear-gradient(90deg, #ff4e50, #f9d423); /* Reverse gradient */
+    background: linear-gradient(90deg, #ff4e50, #f9d423); 
     background-clip: text;
-    -webkit-background-clip: text; /* Ensure gradient is applied on hover */
+    -webkit-background-clip: text; 
     color: transparent;
-    transform: scale(1.05); /* Slight zoom effect */
+    transform: scale(1.05); 
 }
 
 /* Featured sections container */
 .featured-sections {
     padding: 2rem;
-    background: #e3f2fd; /* Sky blue background */
+    background: #e3f2fd; 
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: 2rem;
@@ -569,10 +567,10 @@ footer .footer-links a:hover::after {
 
 /* Featured sections heading */
 .featured-sections h2 {
-    font-size: 3rem; /* Larger font size */
+    font-size: 3rem; 
     font-weight: 700;
     color: #ffffff;
-    background: linear-gradient(90deg, #007bff, #00d2ff); /* Blue to cyan gradient */
+    background: linear-gradient(90deg, #007bff, #00d2ff); 
     padding: 1.5rem;
     border-radius: 8px;
     text-align: center;
@@ -580,7 +578,7 @@ footer .footer-links a:hover::after {
     margin-bottom: 1.5rem;
     position: relative;
     overflow: hidden;
-    animation: bounce 2s infinite; /* Bounce animation */
+    animation: bounce 2s infinite; 
 }
 
 /* Gradient effect for featured sections heading */
@@ -592,13 +590,13 @@ footer .footer-links a:hover::after {
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, #ffeb38b6, #ffef09);
-    opacity: 0.4; /* Semi-transparent gradient overlay */
+    opacity: 0.4; 
     z-index: -1;
     transition: opacity 0.3s ease;
 }
 
 .featured-sections h2:hover::before {
-    opacity: 0.6; /* Slightly more opaque gradient on hover */
+    opacity: 0.6; 
 }
 
 /* Featured sections content */
@@ -690,7 +688,7 @@ footer .footer-links a:hover::after {
 
 /* Responsive Styles for Mobile Devices */
 @media (max-width: 768px) {
-    /* Adjust header styling for mobile */
+    
     header {
         display: flex;
         flex-direction: column;

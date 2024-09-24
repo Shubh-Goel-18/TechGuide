@@ -1,8 +1,8 @@
 /* Base Styles */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color:white; /* Darker background as in learning.css */
-  color: #eaeaea; /* Light text to contrast with the dark background */
+  background-color:white; 
+  color: #eaeaea; 
   margin: 0;
   padding: 0;
   transition: background-color 0.3s ease;
@@ -15,7 +15,7 @@ label{
 /* Main Container */
 .container1 {
   padding: 40px;
-  background: white; /* Similar color scheme to learning.css */
+  background: white; 
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   margin: 40px auto;
@@ -35,7 +35,7 @@ label{
 .container1 h6 {
   font-size: 2.8rem;
   color: #ffffff;
-  background: linear-gradient(135deg, #1c80eb, #007bff); /* Color scheme inspired by learning.css */
+  background: linear-gradient(135deg, #1c80eb, #007bff); 
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -57,7 +57,7 @@ label{
   bottom: -5px;
   width: 0;
   height: 3px;
-  background: linear-gradient(135deg, #1c80eb, #007bff); /* Accent color from learning.css */
+  background: linear-gradient(135deg, #1c80eb, #007bff); 
   transition: width 0.4s ease;
 }
 
@@ -72,7 +72,7 @@ label{
 
 .container1 p {
   font-size: 1.2rem;
-  background: linear-gradient(135deg, #1c80eb, #007bff); /* Gradient background matching learning.css */
+  background: linear-gradient(135deg, #1c80eb, #007bff); 
   color: #ffffff;
   padding: 15px 20px;
   border-radius: 12px;
@@ -89,7 +89,7 @@ label{
   font-size: 1.1rem;
   border: none;
   border-radius: 12px;
-  background: #1c80eb; /* Dark teal color from learning.css */
+  background: #1c80eb; 
   color: #eeeeee;
   font-weight: bold;
   cursor: pointer;
@@ -106,7 +106,7 @@ label{
 }
 
 #languageSelect:hover {
-  background: white; /* Lighter teal from learning.css */
+  background: white; 
   color:#007bff;
   transform: scale(1.10);
 }
@@ -117,14 +117,14 @@ label{
   justify-content: space-around;
   margin-top: 30px;
   padding: 12px;
-  background: white; /* Dark gray background */
+  background: white; 
   border-radius: 15px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
 
 .tab {
   padding: 15px 30px;
-  background: #1c80eb; /* Gradient from learning.css */
+  background: #1c80eb;
   border-radius: 15px;
   cursor: pointer;
   color: #ffffff;
@@ -135,7 +135,7 @@ label{
 
 .tab.active {
   background: white;
-  color: #007bff; /* Active state with a lighter teal */
+  color: #007bff; 
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(199, 203, 203, 0.3);
 }
@@ -151,7 +151,7 @@ label{
 .solution-content {
   margin-top: 30px;
   padding: 25px;
-  background: white; /* Dark background with subtle color change */
+  background: white;
   border-radius: 15px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   color: #e0e0e0;

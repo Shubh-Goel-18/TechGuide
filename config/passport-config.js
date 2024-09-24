@@ -1,7 +1,7 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
-const db = require('../config/db'); // Your database connection
+const db = require('../config/db'); 
 
 // Serialize user into session
 passport.serializeUser((user, done) => {

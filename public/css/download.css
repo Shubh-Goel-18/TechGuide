@@ -8,7 +8,7 @@
     border-radius: 15px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     border: 1px solid #dee2e6;
-    position: relative; /* Added to position the clear button relative to this container */
+    position: relative;
 }
 
 .downloads-container h1 {
@@ -68,40 +68,40 @@ tr:hover {
 
 /* Enhanced Delete Button */
 .delete-btn {
-    background: linear-gradient(45deg, #ff7e5f, #feb47b); /* Gradient from a soft pink to light orange */
+    background: linear-gradient(45deg, #ff7e5f, #feb47b); 
     color: #ffffff;
     border: none;
-    padding: 8px 12px; /* Slightly larger padding */
+    padding: 8px 12px; 
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .delete-btn:hover {
-    background-color: #ff5733; /* Slightly darker shade for hover */
+    background-color: #ff5733; 
     transform: scale(1.1);
 }
 
 /* Centered Clear All Button */
 .clear-all-container {
     display: flex;
-    justify-content: center; /* Centers the button horizontally */
-    margin-top: 30px; /* Adds some space above the button */
+    justify-content: center; 
+    margin-top: 30px;
 }
 
 #clear-all {
-    background: linear-gradient(45deg, #ff7e5f, #feb47b); /* Matching gradient with delete button */
+    background: linear-gradient(45deg, #ff7e5f, #feb47b); 
     color: #ffffff;
     border: none;
-    padding: 12px 24px; /* Increase the size of the button */
+    padding: 12px 24px; 
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1.2rem; /* Slightly larger font size */
+    font-size: 1.2rem;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 #clear-all:hover {
-    background-color: #ff5733; /* Slightly darker shade for hover */
+    background-color: #ff5733; 
     transform: scale(1.1);
 }
 

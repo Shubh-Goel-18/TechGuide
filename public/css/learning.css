@@ -1,8 +1,8 @@
-/* Remove Horizontal Scrollbar */
+
 body, html {
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Ensure no horizontal scroll */
+    overflow-x: hidden; 
 }
 
 main {
@@ -59,7 +59,7 @@ main {
     width: 100%;
     /* overflow: hidden; */
     display: inline-block;
-    white-space: nowrap; /* Ensure text does not wrap */
+    white-space: nowrap; 
 }
 
 .tagline {
@@ -84,7 +84,7 @@ main {
 /* Add Underline Animation for Headings */
 .main-heading-container h1, .main-heading-container h2 {
     position: relative;
-    display: inline-block; /* Ensure underline animates properly */
+    display: inline-block; 
 }
 
 .main-heading-container h1::after, .main-heading-container h2::after {
@@ -289,7 +289,7 @@ main {
     text-align: center;
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
-    margin-top: auto; /* Ensures the button is positioned at the bottom of the card */
+    margin-top: auto; 
 }
 
 .download-button:hover {
@@ -325,17 +325,17 @@ main {
 
 /* Cheatsheets Section Styles */
 .cheatsheets-section {
-    padding: 80px 20px; /* Ensures space around the section */
+    padding: 80px 20px; 
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
     color: #ffffff;
     text-align: center;
     animation: fadeInUp 1s ease-in-out;
-    margin-top: 80px; /* Extra margin to separate from Roadmap section */
+    margin-top: 80px; 
 }
 
 /* Updated Cheatsheets Section Styles */
 .cheatsheets-title {
-    font-size: 3.5rem; /* Increased font size */
+    font-size: 3.5rem; 
     margin-bottom: 40px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -382,10 +382,10 @@ main {
 
 /* Adding a subtle hover effect to the heading */
 .cheatsheets-title:hover {
-    transform: scale(1.15); /* Slight zoom on hover */
+    transform: scale(1.15); 
     background: linear-gradient(135deg, #24c6dc, #ff512f, #dd2476);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    color:  #ff512f; /* Ensure text color is visible */
+    color:  #ff512f; 
     transition: transform 0.5s ease, background 0.5s ease, color 0.5s ease;
 }
 
@@ -408,7 +408,7 @@ main {
 }
 
 .cheatsheet-item:hover {
-    transform: translateY(-10px) scale(1.05); /* Adding scale on hover */
+    transform: translateY(-10px) scale(1.05); 
     box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
 }
 
@@ -422,8 +422,8 @@ main {
 
 /* Hover Effect for Cheatsheet Image */
 .cheatsheet-image:hover {
-    transform: scale(1.1); /* Slight zoom on hover */
-    filter: brightness(1.2); /* Brighten the image on hover */
+    transform: scale(1.1); 
+    filter: brightness(1.2); 
 }
 
 .cheatsheet-language {
@@ -507,7 +507,7 @@ main {
     }
 
     .cheatsheets-title {
-        font-size: 2.5rem; /* Adjusted font size for smaller screens */
+        font-size: 2.5rem; 
     }
 
     .cheatsheet-language {
@@ -538,53 +538,53 @@ main {
 /* For tablets and smaller screens (landscape mode) */
 @media screen and (max-width: 1024px) {
     .language-box {
-        width: 48%; /* Maintain two cards per row */
-        height: 380px; /* Adjusted height */
+        width: 48%; 
+        height: 380px; 
     }
 
     .main-heading-container {
-        font-size: 28px; /* Slightly smaller font for headings */
+        font-size: 28px; 
     }
 }
 
 /* For tablets and small devices (portrait mode) */
 @media screen and (max-width: 768px) {
     .language-box {
-        width: 100%; /* One card per row */
-        height: 360px; /* Adjusted height */
+        width: 100%; 
+        height: 360px; 
     }
 
     .main-heading-container {
-        font-size: 24px; /* Slightly smaller font for headings */
+        font-size: 24px; 
     }
 
     .resources-content ul li a {
-        font-size: 16px; /* Adjusted for better readability on small screens */
+        font-size: 16px; 
     }
 
     .toggle-btn {
-        padding: 10px 20px; /* Adjust button padding */
-        font-size: 14px; /* Adjust button font size */
+        padding: 10px 20px; 
+        font-size: 14px; 
     }
 }
 
 /* For mobile devices */
 @media screen and (max-width: 480px) {
     .language-box {
-        width: 100%; /* One card per row */
-        height: 340px; /* Adjusted height */
+        width: 100%; 
+        height: 340px; 
     }
 
     .main-heading-container {
-        font-size: 20px; /* Smaller font for headings */
+        font-size: 20px; 
     }
 
     .resources-content ul li a {
-        font-size: 14px; /* Smaller font size */
+        font-size: 14px; 
     }
 
     .toggle-btn {
-        padding: 8px 16px; /* Adjust button padding */
-        font-size: 12px; /* Adjust button font size */
+        padding: 8px 16px; 
+        font-size: 12px; 
     }
 }
